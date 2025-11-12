@@ -191,155 +191,227 @@
 
 <script src="data.js"></script>
 <script>
-  // Render functions
-  function renderHero() {
-    const heroSection = document.querySelector('.hero');
-    const heroHTML = DATA.hero.map((slide, index) => `
-      <div class="slide ${index === 0 ? 'active' : ''}" style="position:absolute; inset:0; width:100%; height:100%;">
-        <div class="overlay"></div>
-        <img src="${slide.image}" alt="Hero Image" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:1;">
-        <div class="wrap content" style="position:relative; z-index:2; height:100%; display:grid; place-items:center;">
-          <div style="display:flex;flex-direction:column;align-items:center;gap:24px;">
-            <div class="kicker">${slide.kicker}</div>
-            <h1 class="title">${slide.title}</h1>
-            <p class="lead">${slide.lead}</p>
-            <div class="cta">
-              ${slide.cta.map(btn => `<a class="btn ${btn.type === 'ghost' ? 'ghost' : ''}" href="${btn.href}">${btn.text}</a>`).join('')}
-            </div>
-          </div>
-        </div>
-      </div>
-    `).join('');
-    
-    // Insert hero slides before arrows and dots
-    const arrows = heroSection.querySelector('.wrap.arrows');
-    heroSection.insertBefore(document.createRange().createContextualFragment(heroHTML), arrows);
+  /*
+   * Small front-end helpers and renderers.
+   * - Keep functions focused and descriptive
+   * - Use DATA (from data.js) as the single source of truth
+   */
+
+  // ----- Helpers -----
+  const $ = selector => document.querySelector(selector);
+  const $$ = selector => Array.from(document.querySelectorAll(selector));
+
+  // Toggle element display between block and none
+  function toggleDetails(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.style.display = el.style.display === 'none' || !el.style.display ? 'block' : 'none';
   }
 
-  function renderAbout() {
-    const aboutSection = document.querySelector('#about .card.pad');
-    aboutSection.innerHTML = `
+  // Create DOM fragment from HTML string
+  function fragmentFrom(html) {
+    return document.createRange().createContextualFragment(html);
+  }
+
+  // ----- Renderers (small, single-responsibility) -----
+  function renderHeroSlides() {
+    const container = $('.hero');
+    if (!container) return;
+
+    const slidesHtml = DATA.hero
+      .map((slide, idx) => {
+        return `
+          <div class="slide ${idx === 0 ? 'active' : ''}" aria-hidden="${idx === 0 ? 'false' : 'true'}">
+            <div class="overlay"></div>
+            <img src="${slide.image}" alt="Hero Image" class="hero-bg">
+            <div class="wrap content">
+              <div style="display:flex;flex-direction:column;align-items:center;gap:24px;">
+                <div class="kicker">${slide.kicker}</div>
+                <h1 class="title">${slide.title}</h1>
+                <p class="lead">${slide.lead}</p>
+                <div class="cta">
+                  ${slide.cta
+                    .map(btn => `<a class="btn ${btn.type === 'ghost' ? 'ghost' : ''}" href="${btn.href}">${btn.text}</a>`)
+                    .join('')}
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      })
+      .join('');
+
+    // Insert slides before arrows so arrows stay on top
+    const arrows = container.querySelector('.wrap.arrows');
+    container.insertBefore(fragmentFrom(slidesHtml), arrows);
+  }
+
+  function renderAboutSection() {
+    const el = $('#about .card.pad');
+    if (!el) return;
+    el.innerHTML = `
       <h2>${DATA.about.title}</h2>
       <div class="grid-2">
         <p class="muted">${DATA.about.description}</p>
         <div>
-          ${DATA.about.skills.map(skill => `<span class="pill">${skill}</span>`).join('')}
+          ${DATA.about.skills.map(s => `<span class="pill">${s}</span>`).join('')}
         </div>
-      </div>
-    `;
+      </div>`;
   }
 
   function renderWorkExperience() {
-    const grid = document.getElementById('work-experience-grid');
-    grid.innerHTML = DATA.workExperience.map(item => `
-    <div class="work-experience-item">
-      <div class="logo"><img src="${item.logo}" alt="${item.name} Logo" style="width:100%;height:100%;object-fit:cover;border-radius:12px;"></div>
-        <div style="flex:1">
-          <div style="display:flex; align-items:center; justify-content:space-between; gap:8px">
-            <div><div style="font-weight:700">${item.name}</div><div class="muted" style="font-size:14px">${item.subtitle}</div></div>
-            <button class="chip" onclick="toggle('${item.id}')">Read more</button>
-          </div>
-          <div>${item.tags.map(tag => `<span class="pill">${tag}</span>`).join('')}</div>
-          <div id="${item.id}" class="muted" style="display:none; margin-top:10px">
-            <strong>${item.project}</strong>
-            <ul style="margin:8px 0 0 18px">
-              ${item.details.map(detail => `<li>${detail}</li>`).join('')}
-            </ul>
-            <div style="margin-top:16px; border-radius:12px; overflow:hidden">
-              <img src="${item.image}" alt="${item.project}" style="width:100%; height:auto; display:block">
+    const grid = $('#work-experience-grid');
+    if (!grid) return;
+
+    grid.innerHTML = DATA.workExperience
+      .map(item => {
+        return `
+          <div class="work-experience-item">
+            <div class="logo"><img src="${item.logo}" alt="${item.name} Logo"></div>
+            <div style="flex:1">
+              <div style="display:flex; align-items:center; justify-content:space-between; gap:8px">
+                <div>
+                  <div style="font-weight:700">${item.name}</div>
+                  <div class="muted" style="font-size:14px">${item.subtitle}</div>
+                </div>
+                <button class="chip" onclick="toggleDetails('${item.id}')">Read more</button>
+              </div>
+              <div>${item.tags.map(t => `<span class="pill">${t}</span>`).join('')}</div>
+              <div id="${item.id}" class="muted" style="display:none; margin-top:10px">
+                <strong>${item.project}</strong>
+                <ul style="margin:8px 0 0 18px">
+                  ${item.details.map(d => `<li>${d}</li>`).join('')}
+                </ul>
+                <div style="margin-top:16px; border-radius:12px; overflow:hidden">
+                  <img src="${item.image}" alt="${item.project}" style="width:100%; height:auto; display:block">
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-    `).join('');
+        `;
+      })
+      .join('');
   }
 
-  function renderSocial() {
-    const socialSection = document.querySelector('#social .card.pad');
-    socialSection.innerHTML = `
+  function renderSocialLinks() {
+    const el = $('#social .card.pad');
+    if (!el) return;
+    el.innerHTML = `
       <h2>Find Me Online</h2>
       <div class="socials" style="justify-content:center;">
-        ${DATA.social.map(social => `<a href="${social.url}" target="_blank" rel="noreferrer">${social.name}</a>`).join('')}
-      </div>
-    `;
+        ${DATA.social.map(s => `<a href="${s.url}" target="_blank" rel="noreferrer">${s.name}</a>`).join('')}
+      </div>`;
   }
 
-  function renderContact() {
-    const contactSection = document.querySelector('#contact .card.pad');
-    contactSection.innerHTML = `
+  function renderContactInfo() {
+    const el = $('#contact .card.pad');
+    if (!el) return;
+    el.innerHTML = `
       <h2>${DATA.contact.title}</h2>
       <div class="muted" style="font-size:16px">${DATA.contact.subtitle}</div>
-      <code style="display:inline-block; background:#fff; border:1px solid #eef2f7; padding:8px 12px; border-radius:8px; font-size:16px">${DATA.contact.email}</code>
-    `;
+      <code style="display:inline-block; background:#fff; border:1px solid #eef2f7; padding:8px 12px; border-radius:8px; font-size:16px">${DATA.contact.email}</code>`;
   }
 
-  // Initialize all content
-  function initContent() {
-    renderHero();
-    renderAbout();
-    renderWorkExperience();
-    renderSocial();
-    renderContact();
+  // ----- Slider / Navigation behavior -----
+  function setupNavScroll() {
+    const nav = $('#nav');
+    if (!nav) return;
+    const onScroll = () => (window.scrollY > 20 ? nav.classList.add('solid') : nav.classList.remove('solid'));
+    document.addEventListener('scroll', onScroll);
+    onScroll();
   }
 
-  // Navigation & Hero Slider
-  const nav=document.getElementById('nav'); 
-  const toggleNav=()=>window.scrollY>20?nav.classList.add('solid'):nav.classList.remove('solid'); 
-  document.addEventListener('scroll',toggleNav); toggleNav();
-  
-  let slides, dots, idx=0, timer;
-  
-  function initSlider() {
-    slides=[...document.querySelectorAll('.slide')]; 
-    dots=document.getElementById('dots');
-    
-    function go(i){
-      slides[idx].classList.remove('active'); 
-      dots.children[idx]?.classList.remove('active'); 
-      idx=(i+slides.length)%slides.length; 
-      slides[idx].classList.add('active'); 
-      dots.children[idx]?.classList.add('active'); 
-      restart();
+  // Simple slider implementation
+  function initSlider(autoPlayMs = 5000) {
+    const slides = Array.from(document.querySelectorAll('.slide'));
+    const dotsContainer = $('#dots');
+    if (!slides.length || !dotsContainer) return;
+
+    let current = 0;
+    let timer = null;
+
+    function goTo(index) {
+      slides[current].classList.remove('active');
+      dotsContainer.children[current]?.classList.remove('active');
+      current = (index + slides.length) % slides.length;
+      slides[current].classList.add('active');
+      dotsContainer.children[current]?.classList.add('active');
+      restartTimer();
     }
-    function next(){go(idx+1)} 
-    function prev(){go(idx-1)} 
-    function restart(){clearInterval(timer); timer=setInterval(next,5000)}
-    
-    slides.forEach((_,i)=>{
-      const d=document.createElement('div'); 
-      d.className='dot'+(i===0?' active':''); 
-      d.addEventListener('click',()=>go(i)); 
-      dots.appendChild(d);
+
+    function next() { goTo(current + 1); }
+    function prev() { goTo(current - 1); }
+
+    function restartTimer() {
+      clearInterval(timer);
+      timer = setInterval(next, autoPlayMs);
+    }
+
+    // build dots
+    slides.forEach((_, i) => {
+      const d = document.createElement('div');
+      d.className = 'dot' + (i === 0 ? ' active' : '');
+      d.addEventListener('click', () => goTo(i));
+      dotsContainer.appendChild(d);
     });
-    
-    document.getElementById('next')?.addEventListener('click',next); 
-    document.getElementById('prev')?.addEventListener('click',prev); 
-    restart();
+
+    $('#next')?.addEventListener('click', next);
+    $('#prev')?.addEventListener('click', prev);
+
+    restartTimer();
   }
 
-  // Works section
-  const grid=document.getElementById('works-grid');
-  function card(w){return `<div class="work"><div class="thumb"><img src="${w.image}" alt="Work Image" style="width:100%;height:auto;object-fit:cover;border-radius:8px;"></div><div style="padding:14px"><div style="font-weight:700">${w.title}</div><div class="muted" style="font-size:12px">${w.category} • ${w.tools}</div><div style="margin-top:6px">${w.tags.map(t=>`<span class='pill'>${t}</span>`).join('')}</div></div></div>`}
-  function render(f='All'){grid.innerHTML=(f==='All'?DATA.works:DATA.works.filter(w=>w.category===f)).map(card).join('')} 
-  
-  function setFilter(cat,el){document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active')); el.classList.add('active'); render(cat)}
-  function toggle(id){const el=document.getElementById(id); el.style.display=el.style.display==='none'||!el.style.display?'block':'none'}
-  
-  document.getElementById('year').textContent=new Date().getFullYear();
-  const backToTop = document.getElementById('backToTop');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 300) {
-      backToTop.classList.add('visible');
-    } else {
-      backToTop.classList.remove('visible');
-    }
-  });
+  // ----- Works grid -----
+  function renderWorks(filter = 'All') {
+    const grid = $('#works-grid');
+    if (!grid) return;
+    const items = filter === 'All' ? DATA.works : DATA.works.filter(w => w.category === filter);
+    grid.innerHTML = items
+      .map(w => `
+        <div class="work">
+          <div class="thumb"><img src="${w.image}" alt="${w.title}" style="width:100%;height:auto;object-fit:cover;border-radius:8px;"></div>
+          <div style="padding:14px">
+            <div style="font-weight:700">${w.title}</div>
+            <div class="muted" style="font-size:12px">${w.category} • ${w.tools}</div>
+            <div style="margin-top:6px">${w.tags.map(t => `<span class='pill'>${t}</span>`).join('')}</div>
+          </div>
+        </div>
+      `)
+      .join('');
+  }
 
-  // Initialize everything when DOM is loaded
+  function setFilter(cat, el) {
+    $$('.chip').forEach(c => c.classList.remove('active'));
+    el.classList.add('active');
+    renderWorks(cat);
+  }
+
+  // ----- Utilities on load -----
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // back-to-top visibility
+  (function setupBackToTop() {
+    const back = $('#backToTop');
+    if (!back) return;
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) back.classList.add('visible');
+      else back.classList.remove('visible');
+    });
+  })();
+
+  // Initialize everything when DOM is ready
   document.addEventListener('DOMContentLoaded', () => {
-    initContent();
-    setTimeout(initSlider, 100); // Delay to ensure slides are rendered
-    render();
+    renderHeroSlides();
+    renderAboutSection();
+    renderWorkExperience();
+    renderSocialLinks();
+    renderContactInfo();
+    initSlider(5000);
+    renderWorks();
+    setupNavScroll();
+    // expose toggleDetails globally for inline onclick (kept for simplicity)
+    window.toggleDetails = toggleDetails;
+    window.setFilter = setFilter;
   });
 </script>
 </body>
