@@ -133,51 +133,7 @@
   </div>
 
   <section class="hero" id="home">
-    <div class="slide active" style="background-image:
-      radial-gradient(1200px 600px at 80% 10%, rgba(11,101,255,.35), rgba(0,0,0,.0)),
-      linear-gradient(120deg, #0b65ff 0%, #00e0ff 50%, #111 120%),
-      url('data:image/svg+xml;utf8,<?xml version='1.0'?><svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;1920&quot; height=&quot;1080&quot;><defs><linearGradient id=&quot;g&quot; x1=&quot;0&quot; y1=&quot;0&quot; x2=&quot;1&quot; y2=&quot;1&quot;><stop stop-color=&quot;#dfe7ff&quot; offset=&quot;0&quot;/><stop stop-color=&quot;#f8fbff&quot; offset=&quot;1&quot;/></linearGradient></defs><rect width=&quot;100%&quot; height=&quot;100%&quot; fill=&quot;url(%23g)&quot;/></svg>');">
-      <div class="overlay"></div>
-      <div class="wrap content">
-        <div class="kicker">3D • Environment • Unreal</div>
-        <h1 class="title">Immersive worlds with clean, production-ready pipeline.</h1>
-        <p class="lead">Modular scenes, stylized props, and UE5 cinematics — optimized naming, LODs, and material instancing.</p>
-        <div class="cta">
-          <a class="btn" href="#works">View Works</a>
-          <a class="btn ghost" href="#clients">Clients</a>
-        </div>
-      </div>
-    </div>
-    <div class="slide" style="background-image:
-      radial-gradient(1000px 480px at 30% 20%, rgba(0,224,255,.35), rgba(0,0,0,0)),
-      linear-gradient(135deg, #0e141b 0%, #0b65ff 60%, #00e0ff 120%),
-      url('samurai-sword.jpg');">
-      <div class="overlay"></div>
-      <div class="wrap content">
-        <div class="kicker">Realtime & Optimization</div>
-        <h1 class="title">Lower draw calls with trim/atlas workflows.</h1>
-        <p class="lead">Consistent texel density, UV packing, and master material instances for speed and reuse.</p>
-        <div class="cta">
-          <a class="btn" href="#about">About Me</a>
-          <a class="btn ghost" href="#contact">Hire Me</a>
-        </div>
-      </div>
-    </div>
-    <div class="slide" style="background-image:
-  radial-gradient(1000px 480px at 70% 20%, rgba(14,20,27,.35), rgba(0,0,0,0)),
-  linear-gradient(140deg, #111 0%, #0e141b 60%, #0b65ff 130%),
-  url('samurai-sword.jpg');">
-      <div class="overlay"></div>
-      <div class="wrap content">
-        <div class="kicker">Sequencer</div>
-        <h1 class="title">Cinematic shots & trailers with UE5 Sequencer.</h1>
-        <p class="lead">From previs to final cut — lighting, timing, and composition for compelling storytelling.</p>
-        <div class="cta">
-          <a class="btn" href="#works">See Cinematics</a>
-          <a class="btn ghost" href="#social">YouTube</a>
-        </div>
-      </div>
-    </div>
+    <!-- Hero slides will be generated dynamically by JavaScript -->
     <div class="wrap arrows">
       <div class="arrow" id="prev" aria-label="Previous">‹</div>
       <div class="arrow" id="next" aria-label="Next">›</div>
@@ -187,65 +143,15 @@
 
   <section id="about">
     <div class="wrap"><div class="card pad">
-      <h2>Tentang Saya</h2>
-      <div class="grid-2">
-        <p class="muted">Saya <strong>Adev</strong>, 3D artist fokus environment believable dan pipeline rapi (Blender, Substance, UE5.6+). Konsistensi penamaan (SM_, MI_, T_, SK_), LOD, material instancing.</p>
-        <div>
-          <span class="pill">Environment</span><span class="pill">Props</span><span class="pill">Cinematic</span>
-          <span class="pill">Trim/Atlas</span><span class="pill">Nanite/Lumen</span><span class="pill">Sequencer</span>
-        </div>
-      </div>
+      <!-- About section will be generated dynamically by JavaScript -->
     </div></div>
   </section>
 
   <section id="clients">
     <div class="wrap"><div class="card pad">
       <h2>Clients & Collaborations</h2>
-      <div class="clients">
-        <div class="client">
-          <div class="logo">BT</div>
-          <div style="flex:1">
-            <div style="display:flex; align-items:center; justify-content:space-between; gap:8px">
-              <div><div style="font-weight:700">BanaspaTeam</div><div class="muted" style="font-size:14px">Indie Game & Media Collaborations</div></div>
-              <button class="chip" onclick="toggle('c1')">Details</button>
-            </div>
-            <div><span class="pill">Environment Art</span><span class="pill">Props Modeling</span><span class="pill">Unreal Integration</span></div>
-            <div id="c1" class="muted" style="display:none; margin-top:10px">
-              <strong>Stylized Ramen Shop Environment</strong>
-              <ul style="margin:8px 0 0 18px">
-                <li>Blockout → High/Low → UV → Bake → PBR (Mask/ORM)</li>
-                <li>Modular pieces + trim sheet untuk reuse</li>
-                <li>Optimized for UE5 (Nanite/Lumen-ready, LODs)</li>
-              </ul>
-              <!-- Add image showcase -->
-              <div style="margin-top:16px; border-radius:12px; overflow:hidden">
-                <img src="banaspa-work.jpg" alt="Ramen Shop Environment" style="width:100%; height:auto; display:block">
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="client">
-          <div class="logo">MX</div>
-          <div style="flex:1">
-            <div style="display:flex; align-items:center; justify-content:space-between; gap:8px">
-              <div><div style="font-weight:700">Maxxima</div><div class="muted" style="font-size:14px">Production Services & Visualization</div></div>
-              <button class="chip" onclick="toggle('c2')">Details</button>
-            </div>
-            <div><span class="pill">Hard-Surface Props</span><span class="pill">Lookdev</span><span class="pill">Render Pipeline</span></div>
-            <div id="c2" class="muted" style="display:none; margin-top:10px">
-              <strong>Industrial Props Pack</strong>
-              <ul style="margin:8px 0 0 18px">
-                <li>Trim + Atlas workflow untuk draw call rendah</li>
-                <li>Texel density konsisten & penamaan (SM_, MI_, T_*)</li>
-                <li>Master Material instances dengan switches (AO/Detail/Rough)</li>
-              </ul>
-              <!-- Add image showcase -->
-              <div style="margin-top:16px; border-radius:12px; overflow:hidden">
-                <img src="maxxima-work.jpg" alt="Industrial Props Pack" style="width:100%; height:auto; display:block">
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="clients" id="clients-grid">
+        <!-- Client cards will be generated dynamically by JavaScript -->
       </div>
     </div></div>
   </section>
@@ -267,22 +173,14 @@
 
   <section id="social">
     <div class="wrap"><div class="card pad" style="text-align:center;">
-      <h2>Find Me Online</h2>
-      <div class="socials" style="justify-content:center;">
-        <a href="https://www.artstation.com/adevart" target="_blank" rel="noreferrer">ArtStation</a>
-        <a href="https://www.behance.net" target="_blank" rel="noreferrer">Behance</a>
-        <a href="https://instagram.com" target="_blank" rel="noreferrer">Instagram</a>
-        <a href="https://www.youtube.com/@ADevGaming" target="_blank" rel="noreferrer">YouTube</a>
-      </div>
+      <!-- Social section will be generated dynamically by JavaScript -->
     </div></div>
   </section>
 
   <!-- CONTACT -->
   <section id="contact">
     <div class="wrap"><div class="card pad" style="text-align:center;">
-      <h2>Contact</h2>
-      <div class="muted" style="font-size:16px">Email saya:</div>
-      <code style="display:inline-block; background:#fff; border:1px solid #eef2f7; padding:8px 12px; border-radius:8px; font-size:16px">adevart.id@gmail.com</code>
+      <!-- Contact section will be generated dynamically by JavaScript -->
     </div></div>
   </section>
 
@@ -291,25 +189,142 @@
     <a href="#home" class="back-to-top" id="backToTop">↑</a>
   </div></footer>
 
+<script src="data.js"></script>
 <script>
-  const nav=document.getElementById('nav'); const toggleNav=()=>window.scrollY>20?nav.classList.add('solid'):nav.classList.remove('solid'); document.addEventListener('scroll',toggleNav); toggleNav();
-  const slides=[...document.querySelectorAll('.slide')]; const dots=document.getElementById('dots'); let idx=0,timer;
-  function go(i){slides[idx].classList.remove('active'); dots.children[idx]?.classList.remove('active'); idx=(i+slides.length)%slides.length; slides[idx].classList.add('active'); dots.children[idx]?.classList.add('active'); restart();}
-  function next(){go(idx+1)} function prev(){go(idx-1)} function restart(){clearInterval(timer); timer=setInterval(next,5000)}
-  slides.forEach((_,i)=>{const d=document.createElement('div'); d.className='dot'+(i===0?' active':''); d.addEventListener('click',()=>go(i)); dots.appendChild(d)});
-  document.getElementById('next')?.addEventListener('click',next); document.getElementById('prev')?.addEventListener('click',prev); restart();
-  const WORKS=[
-    {title:'Desert Oasis — UE5 Environment', category:'Environment', tools:'UE5 / Blender / Substance', tags:['Nanite','Lumen']},
-    {title:'Ichiraku Ramen – Stylized Scene', category:'Environment', tools:'Blender / Painter', tags:['Stylized','Trim Sheet']},
-    {title:'Props Pack — Industrial', category:'Props', tools:'Blender / Designer', tags:['Atlas','Optimization']},
-    {title:'Cinematic Shot — Mother’s Day', category:'Cinematic', tools:'UE5 Sequencer / DaVinci', tags:['Sequencer','Lighting']}
-  ];
+  // Render functions
+  function renderHero() {
+    const heroSection = document.querySelector('.hero');
+    const heroHTML = DATA.hero.map((slide, index) => `
+      <div class="slide ${index === 0 ? 'active' : ''}" style="position:absolute; inset:0; width:100%; height:100%;">
+        <div class="overlay"></div>
+        <img src="${slide.image}" alt="Hero Image" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:1;">
+        <div class="wrap content" style="position:relative; z-index:2; height:100%; display:grid; place-items:center;">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:24px;">
+            <div class="kicker">${slide.kicker}</div>
+            <h1 class="title">${slide.title}</h1>
+            <p class="lead">${slide.lead}</p>
+            <div class="cta">
+              ${slide.cta.map(btn => `<a class="btn ${btn.type === 'ghost' ? 'ghost' : ''}" href="${btn.href}">${btn.text}</a>`).join('')}
+            </div>
+          </div>
+        </div>
+      </div>
+    `).join('');
+    
+    // Insert hero slides before arrows and dots
+    const arrows = heroSection.querySelector('.wrap.arrows');
+    heroSection.insertBefore(document.createRange().createContextualFragment(heroHTML), arrows);
+  }
+
+  function renderAbout() {
+    const aboutSection = document.querySelector('#about .card.pad');
+    aboutSection.innerHTML = `
+      <h2>${DATA.about.title}</h2>
+      <div class="grid-2">
+        <p class="muted">${DATA.about.description}</p>
+        <div>
+          ${DATA.about.skills.map(skill => `<span class="pill">${skill}</span>`).join('')}
+        </div>
+      </div>
+    `;
+  }
+
+  function renderClients() {
+    const clientsGrid = document.getElementById('clients-grid');
+    clientsGrid.innerHTML = DATA.clients.map(client => `
+      <div class="client">
+        <div class="logo"><img src="${client.logo}" alt="${client.name} Logo" style="width:100%;height:100%;object-fit:cover;border-radius:12px;"></div>
+        <div style="flex:1">
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:8px">
+            <div><div style="font-weight:700">${client.name}</div><div class="muted" style="font-size:14px">${client.subtitle}</div></div>
+            <button class="chip" onclick="toggle('${client.id}')">Details</button>
+          </div>
+          <div>${client.tags.map(tag => `<span class="pill">${tag}</span>`).join('')}</div>
+          <div id="${client.id}" class="muted" style="display:none; margin-top:10px">
+            <strong>${client.project}</strong>
+            <ul style="margin:8px 0 0 18px">
+              ${client.details.map(detail => `<li>${detail}</li>`).join('')}
+            </ul>
+            <div style="margin-top:16px; border-radius:12px; overflow:hidden">
+              <img src="${client.image}" alt="${client.project}" style="width:100%; height:auto; display:block">
+            </div>
+          </div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  function renderSocial() {
+    const socialSection = document.querySelector('#social .card.pad');
+    socialSection.innerHTML = `
+      <h2>Find Me Online</h2>
+      <div class="socials" style="justify-content:center;">
+        ${DATA.social.map(social => `<a href="${social.url}" target="_blank" rel="noreferrer">${social.name}</a>`).join('')}
+      </div>
+    `;
+  }
+
+  function renderContact() {
+    const contactSection = document.querySelector('#contact .card.pad');
+    contactSection.innerHTML = `
+      <h2>${DATA.contact.title}</h2>
+      <div class="muted" style="font-size:16px">${DATA.contact.subtitle}</div>
+      <code style="display:inline-block; background:#fff; border:1px solid #eef2f7; padding:8px 12px; border-radius:8px; font-size:16px">${DATA.contact.email}</code>
+    `;
+  }
+
+  // Initialize all content
+  function initContent() {
+    renderHero();
+    renderAbout();
+    renderClients();
+    renderSocial();
+    renderContact();
+  }
+
+  // Navigation & Hero Slider
+  const nav=document.getElementById('nav'); 
+  const toggleNav=()=>window.scrollY>20?nav.classList.add('solid'):nav.classList.remove('solid'); 
+  document.addEventListener('scroll',toggleNav); toggleNav();
+  
+  let slides, dots, idx=0, timer;
+  
+  function initSlider() {
+    slides=[...document.querySelectorAll('.slide')]; 
+    dots=document.getElementById('dots');
+    
+    function go(i){
+      slides[idx].classList.remove('active'); 
+      dots.children[idx]?.classList.remove('active'); 
+      idx=(i+slides.length)%slides.length; 
+      slides[idx].classList.add('active'); 
+      dots.children[idx]?.classList.add('active'); 
+      restart();
+    }
+    function next(){go(idx+1)} 
+    function prev(){go(idx-1)} 
+    function restart(){clearInterval(timer); timer=setInterval(next,5000)}
+    
+    slides.forEach((_,i)=>{
+      const d=document.createElement('div'); 
+      d.className='dot'+(i===0?' active':''); 
+      d.addEventListener('click',()=>go(i)); 
+      dots.appendChild(d);
+    });
+    
+    document.getElementById('next')?.addEventListener('click',next); 
+    document.getElementById('prev')?.addEventListener('click',prev); 
+    restart();
+  }
+
+  // Works section
   const grid=document.getElementById('works-grid');
-  function card(w){return `<div class="work"><div class="thumb"><div class="muted">Image Placeholder</div></div><div style="padding:14px"><div style="font-weight:700">${w.title}</div><div class="muted" style="font-size:12px">${w.category} • ${w.tools}</div><div style="margin-top:6px">${w.tags.map(t=>`<span class='pill'>${t}</span>`).join('')}</div></div></div>`}
-  function render(f='All'){grid.innerHTML=(f==='All'?WORKS:WORKS.filter(w=>w.category===f)).map(card).join('')} render();
+  function card(w){return `<div class="work"><div class="thumb"><img src="${w.image}" alt="Work Image" style="width:100%;height:auto;object-fit:cover;border-radius:8px;"></div><div style="padding:14px"><div style="font-weight:700">${w.title}</div><div class="muted" style="font-size:12px">${w.category} • ${w.tools}</div><div style="margin-top:6px">${w.tags.map(t=>`<span class='pill'>${t}</span>`).join('')}</div></div></div>`}
+  function render(f='All'){grid.innerHTML=(f==='All'?DATA.works:DATA.works.filter(w=>w.category===f)).map(card).join('')} 
+  
   function setFilter(cat,el){document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active')); el.classList.add('active'); render(cat)}
   function toggle(id){const el=document.getElementById(id); el.style.display=el.style.display==='none'||!el.style.display?'block':'none'}
-  function copyEmail(){const e=document.getElementById('email').innerText; navigator.clipboard.writeText(e).then(()=>alert('Email disalin ✨')).catch(()=>prompt('Copy this:',e))}
+  
   document.getElementById('year').textContent=new Date().getFullYear();
   const backToTop = document.getElementById('backToTop');
   window.addEventListener('scroll', () => {
@@ -318,6 +333,13 @@
     } else {
       backToTop.classList.remove('visible');
     }
+  });
+
+  // Initialize everything when DOM is loaded
+  document.addEventListener('DOMContentLoaded', () => {
+    initContent();
+    setTimeout(initSlider, 100); // Delay to ensure slides are rendered
+    render();
   });
 </script>
 </body>
