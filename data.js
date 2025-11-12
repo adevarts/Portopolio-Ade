@@ -34,6 +34,7 @@ const DATA = {
       logo: 'images/G2_ELITE.png',
       name: 'BanaspaTeam (Indie Collaboration)',
       subtitle: 'Indie Game & Media Collaboration',
+      duration: '8 bulan (2023-2024)',
       tags: ['Environment Art', 'Props Modeling', 'Unreal Integration'],
       project: 'Stylized Ramen Shop Environment',
       details: [
@@ -48,6 +49,7 @@ const DATA = {
       logo: 'images/G2_ELITE.png',
       name: 'Maxxima (Production Services)',
       subtitle: 'Production Services & Visualization',
+      duration: '6 bulan (2024-sekarang)',
       tags: ['Hard-Surface Props', 'Lookdev', 'Render Pipeline'],
       project: 'Industrial Props Pack',
       details: [

@@ -236,7 +236,7 @@
       <div class="logo"><img src="${item.logo}" alt="${item.name} Logo" style="width:100%;height:100%;object-fit:cover;border-radius:12px;"></div>
         <div style="flex:1">
           <div style="display:flex; align-items:center; justify-content:space-between; gap:8px">
-            <div><div style="font-weight:700">${item.name}</div><div class="muted" style="font-size:14px">${item.subtitle}</div></div>
+            <div><div style="font-weight:700">${item.name}</div><div class="muted" style="font-size:14px">${item.subtitle}</div><div class="muted" style="font-size:13px; margin-top:4px">${item.duration}</div></div>
             <button class="chip" onclick="toggle('${item.id}')">Read more</button>
           </div>
           <div>${item.tags.map(tag => `<span class="pill">${tag}</span>`).join('')}</div>
