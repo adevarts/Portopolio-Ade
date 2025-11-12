@@ -9,7 +9,7 @@ const DATA = {
       cta: [{text:'View Works', href:'#works', type:'primary'}, {text:'Clients', href:'#clients', type:'ghost'}]
     },
     {
-      image: 'imagesplaceholder.jpg',
+      image: 'images/placeholder.jpg',
       kicker: 'Realtime & Optimization',
       title: 'Lower draw calls with trim/atlas workflows.',
       lead: 'Consistent texel density, UV packing, and master material instances for speed and reuse.',
