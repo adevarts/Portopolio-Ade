@@ -2,21 +2,21 @@
 const DATA = {
   hero: [
     {
-      image: 'images/placeholder.jpg',
+  image: 'images/G2_Elite.png',
       kicker: '3D • Environment • Unreal',
       title: 'Immersive worlds with clean, production-ready pipeline.',
       lead: 'Modular scenes, stylized props, and UE5 cinematics — optimized naming, LODs, and material instancing.',
       cta: [{text:'View Works', href:'#works', type:'primary'}, {text:'Clients', href:'#clients', type:'ghost'}]
     },
     {
-      image: 'images/placeholder.jpg',
+  image: 'images/G2_ELITE.png',
       kicker: 'Realtime & Optimization',
       title: 'Lower draw calls with trim/atlas workflows.',
       lead: 'Consistent texel density, UV packing, and master material instances for speed and reuse.',
       cta: [{text:'About Me', href:'#about', type:'primary'}, {text:'Hire Me', href:'#contact', type:'ghost'}]
     },
     {
-      image: 'images/placeholder.jpg',
+  image: 'images/G2_ELITE.png',
       kicker: 'Sequencer',
       title: 'Cinematic shots & trailers with UE5 Sequencer.',
       lead: 'From previs to final cut — lighting, timing, and composition for compelling storytelling.',
@@ -31,7 +31,7 @@ const DATA = {
   clients: [
     {
       id: 'c1',
-      logo: 'images/placeholder.jpg',
+  logo: 'images/G2_Elite.png',
       name: 'BanaspaTeam',
       subtitle: 'Indie Game & Media Collaborations',
       tags: ['Environment Art', 'Props Modeling', 'Unreal Integration'],
@@ -45,7 +45,7 @@ const DATA = {
     },
     {
       id: 'c2',
-      logo: 'images/placeholder.jpg',
+  logo: 'images/G2_ELITE.png',
       name: 'Maxxima',
       subtitle: 'Production Services & Visualization',
       tags: ['Hard-Surface Props', 'Lookdev', 'Render Pipeline'],
@@ -59,10 +59,10 @@ const DATA = {
     }
   ],
   works: [
-    {title:'Desert Oasis — UE5 Environment', category:'Environment', tools:'UE5 / Blender / Substance', tags:['Nanite','Lumen'], image:'images/placeholder.jpg'},
-    {title:'Ichiraku Ramen – Stylized Scene', category:'Environment', tools:'Blender / Painter', tags:['Stylized','Trim Sheet'], image:'images/placeholder.jpg'},
-    {title:'Props Pack — Industrial', category:'Props', tools:'Blender / Designer', tags:['Atlas','Optimization'], image:'images/placeholder.jpg'},
-    {title:'Cinematic Shot — Mother\'s Day', category:'Cinematic', tools:'UE5 Sequencer / DaVinci', tags:['Sequencer','Lighting'], image:'images/G2_ELITE.png'}
+  {title:'Desert Oasis — UE5 Environment', category:'Environment', tools:'UE5 / Blender / Substance', tags:['Nanite','Lumen'], image:'images/G2_Elite.png'},
+  {title:'Ichiraku Ramen – Stylized Scene', category:'Environment', tools:'Blender / Painter', tags:['Stylized','Trim Sheet'], image:'images/G2_ELITE.png'},
+  {title:'Props Pack — Industrial', category:'Props', tools:'Blender / Designer', tags:['Atlas','Optimization'], image:'images/G2_ELITE.png'},
+  {title:'Cinematic Shot — Mother\'s Day', category:'Cinematic', tools:'UE5 Sequencer / DaVinci', tags:['Sequencer','Lighting'], image:'images/G2_ELITE.png'}
   ],
   social: [
     {name: 'ArtStation', url: 'https://www.artstation.com/adevart'},
