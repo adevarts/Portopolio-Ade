@@ -41,7 +41,7 @@ const DATA = {
         'Modular pieces + trim sheet untuk reuse',
         'Optimized for UE5 (Nanite/Lumen-ready, LODs)'
       ],
-      image: 'images/banaspa-work.jpg'
+      image: 'images/G2_Elite.png'
     },
     {
       id: 'c2',
@@ -55,7 +55,7 @@ const DATA = {
         'Texel density konsisten & penamaan (SM_, MI_, T_*)',
         'Master Material instances dengan switches (AO/Detail/Rough)'
       ],
-      image: 'images/maxxima-work.jpg'
+      image: 'images/G2_Elite.png'
     }
   ],
   works: [
