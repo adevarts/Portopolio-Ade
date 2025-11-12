@@ -71,8 +71,8 @@
   .card{background:#fff; border:1px solid #eef2f7; border-radius:16px; box-shadow: var(--shadow)}
   .pad{padding:28px}
   .grid-2{display:grid; grid-template-columns:1fr 1fr; gap:18px}
-  .clients{display:grid; grid-template-columns:1fr 1fr; gap:16px}
-  .client{display:flex; gap:14px; padding:16px; border:1px solid #eef2f7; border-radius:14px; align-items:flex-start}
+  .work-experience{display:grid; grid-template-columns:1fr 1fr; gap:16px}
+  .work-experience-item{display:flex; gap:14px; padding:16px; border:1px solid #eef2f7; border-radius:14px; align-items:flex-start}
   .logo{height:48px; width:48px; border-radius:12px; display:grid; place-items:center; background:#000; color:#fff; font-weight:800}
   .pill{display:inline-block; padding:4px 10px; border-radius:999px; border:1px solid #eef2f7; background:#f7f9fc; font-size:12px; margin-right:6px; margin-top:4px}
   .works{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
@@ -110,7 +110,7 @@
     opacity: 1;
     visibility: visible;
   }
-  @media (max-width: 1024px){ .grid-2{grid-template-columns:1fr} .clients{grid-template-columns:1fr} .works{grid-template-columns:1fr 1fr} }
+  @media (max-width: 1024px){ .grid-2{grid-template-columns:1fr} .work-experience{grid-template-columns:1fr} .works{grid-template-columns:1fr 1fr} }
   @media (max-width: 560px){ .menu{display:none} .works{grid-template-columns:1fr} }
   .hp{position:absolute; left:-5000px} /* honeypot */
 </style>
@@ -124,7 +124,7 @@
       </a>
       <div class="menu">
         <a href="#about">About</a>
-  <a href="#clients">Clients</a>
+  <a href="#work-experience">Work Experience</a>
         <a href="#works">Works</a>
         <a href="#social">Social</a>
         <a href="#contact">Contact</a>
@@ -147,11 +147,11 @@
     </div></div>
   </section>
 
-  <section id="clients">
+  <section id="work-experience">
     <div class="wrap"><div class="card pad">
-      <h2>Clients & Collaborations</h2>
-      <div class="clients" id="clients-grid">
-        <!-- Client cards will be generated dynamically by JavaScript -->
+      <h2>Work Experience</h2>
+      <div class="work-experience" id="work-experience-grid">
+        <!-- Work experience cards will be generated dynamically by JavaScript -->
       </div>
     </div></div>
   </section>
@@ -229,24 +229,24 @@
     `;
   }
 
-  function renderClients() {
-    const clientsGrid = document.getElementById('clients-grid');
-    clientsGrid.innerHTML = DATA.clients.map(client => `
-      <div class="client">
-        <div class="logo"><img src="${client.logo}" alt="${client.name} Logo" style="width:100%;height:100%;object-fit:cover;border-radius:12px;"></div>
+  function renderWorkExperience() {
+    const grid = document.getElementById('work-experience-grid');
+    grid.innerHTML = DATA.workExperience.map(item => `
+    <div class="work-experience-item">
+      <div class="logo"><img src="${item.logo}" alt="${item.name} Logo" style="width:100%;height:100%;object-fit:cover;border-radius:12px;"></div>
         <div style="flex:1">
           <div style="display:flex; align-items:center; justify-content:space-between; gap:8px">
-            <div><div style="font-weight:700">${client.name}</div><div class="muted" style="font-size:14px">${client.subtitle}</div></div>
-            <button class="chip" onclick="toggle('${client.id}')">Details</button>
+            <div><div style="font-weight:700">${item.name}</div><div class="muted" style="font-size:14px">${item.subtitle}</div></div>
+            <button class="chip" onclick="toggle('${item.id}')">Read more</button>
           </div>
-          <div>${client.tags.map(tag => `<span class="pill">${tag}</span>`).join('')}</div>
-          <div id="${client.id}" class="muted" style="display:none; margin-top:10px">
-            <strong>${client.project}</strong>
+          <div>${item.tags.map(tag => `<span class="pill">${tag}</span>`).join('')}</div>
+          <div id="${item.id}" class="muted" style="display:none; margin-top:10px">
+            <strong>${item.project}</strong>
             <ul style="margin:8px 0 0 18px">
-              ${client.details.map(detail => `<li>${detail}</li>`).join('')}
+              ${item.details.map(detail => `<li>${detail}</li>`).join('')}
             </ul>
             <div style="margin-top:16px; border-radius:12px; overflow:hidden">
-              <img src="${client.image}" alt="${client.project}" style="width:100%; height:auto; display:block">
+              <img src="${item.image}" alt="${item.project}" style="width:100%; height:auto; display:block">
             </div>
           </div>
         </div>
@@ -277,7 +277,7 @@
   function initContent() {
     renderHero();
     renderAbout();
-    renderClients();
+    renderWorkExperience();
     renderSocial();
     renderContact();
   }
