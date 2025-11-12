@@ -237,7 +237,7 @@
         <div style="flex:1">
           <div style="display:flex; align-items:center; justify-content:space-between; gap:8px">
             <div><div style="font-weight:700">${client.name}</div><div class="muted" style="font-size:14px">${client.subtitle}</div></div>
-            <button class="chip" onclick="toggle('${client.id}')">Details</button>
+            <button class="chip" onclick="toggle('${client.id}')">Read more</button>
           </div>
           <div>${client.tags.map(tag => `<span class="pill">${tag}</span>`).join('')}</div>
           <div id="${client.id}" class="muted" style="display:none; margin-top:10px">
