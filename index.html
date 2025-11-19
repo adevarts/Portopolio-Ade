@@ -237,18 +237,9 @@
         <div style="flex:1">
           <div style="display:flex; align-items:center; justify-content:space-between; gap:8px">
             <div><div style="font-weight:700">${item.name}</div><div class="muted" style="font-size:14px">${item.subtitle}</div><div class="muted" style="font-size:13px; margin-top:4px">${item.duration}</div></div>
-            <button class="chip" onclick="toggle('${item.id}')">Read more</button>
+            <a class="chip" href="${item.link}" style="text-decoration:none; display:inline-block; padding:8px 12px; border-radius:999px; border:1px solid #eef2f7; background:#fff; cursor:pointer; font-size:14px">Read more</a>
           </div>
           <div>${item.tags.map(tag => `<span class="pill">${tag}</span>`).join('')}</div>
-          <div id="${item.id}" class="muted" style="display:none; margin-top:10px">
-            <strong>${item.project}</strong>
-            <ul style="margin:8px 0 0 18px">
-              ${item.details.map(detail => `<li>${detail}</li>`).join('')}
-            </ul>
-            <div style="margin-top:16px; border-radius:12px; overflow:hidden">
-              <img src="${item.image}" alt="${item.project}" style="width:100%; height:auto; display:block">
-            </div>
-          </div>
         </div>
       </div>
     `).join('');

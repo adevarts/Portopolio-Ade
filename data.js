@@ -35,6 +35,7 @@ const DATA = {
       name: 'BanaspaTeam (Indie Collaboration)',
       subtitle: 'Indie Game & Media Collaboration',
       duration: '8 bulan (2023-2024)',
+      link: 'work-banaspa.html',
       tags: ['Environment Art', 'Props Modeling', 'Unreal Integration'],
       project: 'Stylized Ramen Shop Environment',
       details: [
@@ -50,6 +51,7 @@ const DATA = {
       name: 'Maxxima (Production Services)',
       subtitle: 'Production Services & Visualization',
       duration: '6 bulan (2024-sekarang)',
+      link: 'work-maxxima.html',
       tags: ['Hard-Surface Props', 'Lookdev', 'Render Pipeline'],
       project: 'Industrial Props Pack',
       details: [
