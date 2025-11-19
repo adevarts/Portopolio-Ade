@@ -237,7 +237,7 @@
         <div style="flex:1">
           <div style="display:flex; align-items:center; justify-content:space-between; gap:8px">
             <div><div style="font-weight:700">${item.name}</div><div class="muted" style="font-size:14px">${item.subtitle}</div><div class="muted" style="font-size:13px; margin-top:4px">${item.duration}</div></div>
-            <a class="chip" href="${item.link}" style="text-decoration:none; display:inline-block; padding:8px 12px; border-radius:999px; border:1px solid #eef2f7; background:#fff; cursor:pointer; font-size:14px">Read more</a>
+            <a class="chip" href="${item.link}" target="_blank" rel="noreferrer" style="text-decoration:none; display:inline-block; padding:8px 12px; border-radius:999px; border:1px solid #eef2f7; background:#fff; cursor:pointer; font-size:14px">Read more</a>
           </div>
           <div>${item.tags.map(tag => `<span class="pill">${tag}</span>`).join('')}</div>
         </div>
