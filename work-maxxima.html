@@ -30,23 +30,34 @@
   .brand-badge{height:36px; width:36px; display:grid; place-items:center; border-radius:12px; background:#000; color:#fff}
   .header {
     margin-top: 72px;
-    padding: 60px 0;
+    padding: 40px 0;
     background: #ffffff;
     border-bottom: 1px solid #eef2f7;
     color: #0e141b;
+  }
+  .header .wrap {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  .header-content {
+    flex: 1;
+    text-align: center;
   }
   .header h1 {
     margin: 0;
     font-size: clamp(28px, 5vw, 48px);
     font-weight: 800;
+    color: #0e141b;
   }
   .header .role {
     margin-top: 8px;
     font-size: 18px;
     color: #6b7280;
+    font-weight: 500;
   }
   .header .duration {
-    margin-top: 12px;
+    margin-top: 6px;
     font-size: 14px;
     color: #9ca3af;
   }
@@ -95,15 +106,18 @@
     align-items: center;
     gap: 8px;
     padding: 10px 16px;
-    border: 1px solid #eef2f7;
+    border: none;
     border-radius: 10px;
     text-decoration: none;
-    color: inherit;
+    color: #fff;
+    background: #0e141b;
     font-weight: 600;
     transition: all .2s ease;
+    cursor: pointer;
   }
   .back-btn:hover {
-    background: #f7f9fc;
+    background: #1a202c;
+    transform: translateX(-2px);
   }
   .footer{border-top:1px solid #eef2f7; padding:20px 0; color:#6b7280; text-align:center}
   @media (max-width: 560px){ 
@@ -134,14 +148,14 @@
   <section>
     <div class="wrap">
       <div class="card">
-        <h2>Role & Responsibility</h2>
-        <p>Sebagai <strong>3D Artist</strong> di Maxxima, saya fokus pada:</p>
-        <ul>
-          <li>Desain dan modeling hard-surface props berkualitas tinggi</li>
-          <li>Implementasi trim sheet dan atlas texture untuk optimasi performa</li>
-          <li>Lookdev dan setup material dengan master material instances</li>
-          <li>Memastikan texel density konsisten di semua asset</li>
-          <li>Penamaan dan organisasi file sesuai standar produksi (SM_, MI_, T_*)</li>
+        <h2 style="font-size:24px; margin-bottom:16px">Role & Responsibility</h2>
+        <p style="margin-bottom:12px; font-size:16px; line-height:1.7">Sebagai <strong>3D Artist</strong> di Maxxima, saya fokus pada:</p>
+        <ul style="margin:16px 0; padding-left:24px; line-height:1.8">
+          <li style="margin-bottom:8px">Desain dan modeling hard-surface props berkualitas tinggi</li>
+          <li style="margin-bottom:8px">Implementasi trim sheet dan atlas texture untuk optimasi performa</li>
+          <li style="margin-bottom:8px">Lookdev dan setup material dengan master material instances</li>
+          <li style="margin-bottom:8px">Memastikan texel density konsisten di semua asset</li>
+          <li style="margin-bottom:8px">Penamaan dan organisasi file sesuai standar produksi (SM_, MI_, T_*)</li>
           <li>Rendering dan visualization untuk klien</li>
         </ul>
       </div>
@@ -150,8 +164,8 @@
 
   <section>
     <div class="wrap">
-      <h2>Project Showcase</h2>
-      <p class="muted">Koleksi project yang dikerjakan di Maxxima</p>
+      <h2 style="font-size:24px; margin-bottom:8px">Project Showcase</h2>
+      <p class="muted" style="margin-bottom:24px; font-size:15px">Koleksi project yang dikerjakan di Maxxima</p>
       
       <div class="gallery">
         <div class="gallery-item">
@@ -232,13 +246,13 @@
   <section>
     <div class="wrap">
       <div class="card">
-        <h2>Key Achievements</h2>
-        <ul>
-          <li>Delivered 50+ production-ready hard-surface props with consistent quality</li>
-          <li>Optimized atlas workflow reducing draw calls by 65% compared to individual textures</li>
-          <li>Implemented master material system with switches for AO, Detail, and Roughness</li>
-          <li>Maintained strict naming conventions and file organization across projects</li>
-          <li>Collaborated with visualization team for client-facing renders</li>
+        <h2 style="font-size:24px; margin-bottom:16px">Key Achievements</h2>
+        <ul style="margin:0; padding-left:24px; line-height:1.8">
+          <li style="margin-bottom:8px">Delivered 50+ production-ready hard-surface props with consistent quality</li>
+          <li style="margin-bottom:8px">Optimized atlas workflow reducing draw calls by 65% compared to individual textures</li>
+          <li style="margin-bottom:8px">Implemented master material system with switches for AO, Detail, and Roughness</li>
+          <li style="margin-bottom:8px">Maintained strict naming conventions and file organization across projects</li>
+          <li style="margin-bottom:8px">Collaborated with visualization team for client-facing renders</li>
           <li>Mentored junior artists on production pipeline and best practices</li>
         </ul>
       </div>

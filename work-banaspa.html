@@ -30,23 +30,34 @@
   .brand-badge{height:36px; width:36px; display:grid; place-items:center; border-radius:12px; background:#000; color:#fff}
   .header {
     margin-top: 72px;
-    padding: 60px 0;
+    padding: 40px 0;
     background: #ffffff;
     border-bottom: 1px solid #eef2f7;
     color: #0e141b;
+  }
+  .header .wrap {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  .header-content {
+    flex: 1;
+    text-align: center;
   }
   .header h1 {
     margin: 0;
     font-size: clamp(28px, 5vw, 48px);
     font-weight: 800;
+    color: #0e141b;
   }
   .header .role {
     margin-top: 8px;
     font-size: 18px;
     color: #6b7280;
+    font-weight: 500;
   }
   .header .duration {
-    margin-top: 12px;
+    margin-top: 6px;
     font-size: 14px;
     color: #9ca3af;
   }
@@ -95,15 +106,18 @@
     align-items: center;
     gap: 8px;
     padding: 10px 16px;
-    border: 1px solid #eef2f7;
+    border: none;
     border-radius: 10px;
     text-decoration: none;
-    color: inherit;
+    color: #fff;
+    background: #0e141b;
     font-weight: 600;
     transition: all .2s ease;
+    cursor: pointer;
   }
   .back-btn:hover {
-    background: #f7f9fc;
+    background: #1a202c;
+    transform: translateX(-2px);
   }
   .footer{border-top:1px solid #eef2f7; padding:20px 0; color:#6b7280; text-align:center}
   @media (max-width: 560px){ 
@@ -123,24 +137,27 @@
   </div>
 
   <div class="header">
-    <div class="wrap" style="text-align:center">
-      <a href="index.html#work-experience" class="back-btn" style="display:inline-block">← Back</a>
-      <h1>BanaspaTeam</h1>
-      <div class="role">Indie Game & Media Collaboration</div>
-      <div class="duration">8 bulan (2023-2024)</div>
+    <div class="wrap">
+      <a href="index.html#work-experience" class="back-btn">← Back</a>
+      <div class="header-content">
+        <h1>BanaspaTeam</h1>
+        <div class="role">Indie Game & Media Collaboration</div>
+        <div class="duration">8 bulan (2023-2024)</div>
+      </div>
+      <div style="width:60px"></div>
     </div>
   </div>
 
   <section>
     <div class="wrap">
       <div class="card">
-        <h2>Role & Responsibility</h2>
-        <p>Sebagai <strong>Environment Artist</strong> di BanaspaTeam, saya bertanggung jawab untuk:</p>
-        <ul>
-          <li>Membuat environment dan asset 3D yang berkualitas untuk game indie</li>
-          <li>Melakukan blockout, high/low poly modeling, UV mapping, dan texturing</li>
-          <li>Baking texture dan setup PBR material untuk Unreal Engine 5</li>
-          <li>Membuat modular pieces dan trim sheet untuk optimal reuse</li>
+        <h2 style="font-size:24px; margin-bottom:16px">Role & Responsibility</h2>
+        <p style="margin-bottom:12px; font-size:16px; line-height:1.7">Sebagai <strong>Environment Artist</strong> di BanaspaTeam, saya bertanggung jawab untuk:</p>
+        <ul style="margin:16px 0; padding-left:24px; line-height:1.8">
+          <li style="margin-bottom:8px">Membuat environment dan asset 3D yang berkualitas untuk game indie</li>
+          <li style="margin-bottom:8px">Melakukan blockout, high/low poly modeling, UV mapping, dan texturing</li>
+          <li style="margin-bottom:8px">Baking texture dan setup PBR material untuk Unreal Engine 5</li>
+          <li style="margin-bottom:8px">Membuat modular pieces dan trim sheet untuk optimal reuse</li>
           <li>Optimasi untuk UE5 dengan Nanite dan Lumen</li>
         </ul>
       </div>
@@ -149,8 +166,8 @@
 
   <section>
     <div class="wrap">
-      <h2>Project Showcase</h2>
-      <p class="muted">Koleksi project yang dikerjakan di BanaspaTeam</p>
+      <h2 style="font-size:24px; margin-bottom:8px">Project Showcase</h2>
+      <p class="muted" style="margin-bottom:24px; font-size:15px">Koleksi project yang dikerjakan di BanaspaTeam</p>
       
       <div class="gallery">
         <div class="gallery-item">
@@ -231,12 +248,12 @@
   <section>
     <div class="wrap">
       <div class="card">
-        <h2>Key Achievements</h2>
-        <ul>
-          <li>Completed multiple production-ready environment assets optimized for UE5</li>
-          <li>Implemented efficient trim sheet workflow reducing draw calls by 60%</li>
-          <li>Maintained consistent naming conventions (SM_, MI_, T_) across all assets</li>
-          <li>Successfully integrated Nanite and Lumen workflows for real-time rendering</li>
+        <h2 style="font-size:24px; margin-bottom:16px">Key Achievements</h2>
+        <ul style="margin:0; padding-left:24px; line-height:1.8">
+          <li style="margin-bottom:8px">Completed multiple production-ready environment assets optimized for UE5</li>
+          <li style="margin-bottom:8px">Implemented efficient trim sheet workflow reducing draw calls by 60%</li>
+          <li style="margin-bottom:8px">Maintained consistent naming conventions (SM_, MI_, T_) across all assets</li>
+          <li style="margin-bottom:8px">Successfully integrated Nanite and Lumen workflows for real-time rendering</li>
           <li>Collaborated effectively with game developers and designers</li>
         </ul>
       </div>
