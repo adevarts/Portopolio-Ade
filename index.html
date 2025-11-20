@@ -30,7 +30,8 @@
   .menu {display:flex; gap:28px}
   .menu a{text-decoration:none; font-weight:600; font-size:14px; opacity:.95}
   .hero {position:relative; min-height:65vh; display:grid; place-items:center; overflow:hidden; color:#fff}
-  .slide{position:absolute; inset:0; opacity:0; transition:opacity .7s ease}
+  .slide{position:absolute; inset:0; opacity:0; transition:opacity .7s ease; display:flex; align-items:center; justify-content:center}
+  .slide img{width:100%; height:100%; object-fit:cover; position:absolute; inset:0}
   .slide.active{opacity:1}
   .overlay{position:absolute; inset:0; background:radial-gradient(60% 60% at 70% 30%,rgba(0,0,0,.2),rgba(0,0,0,.65)),linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.65) 90%); pointer-events:none}
   .content{position:relative; z-index:2}
@@ -143,6 +144,8 @@
     <div>© <span id="year"></span> ADEVART. All rights reserved.</div>
     <a href="#home" class="back-to-top" id="backToTop">↑</a>
   </div></footer>
+
+<script src="data.js"></script>
 <script>
   // Render functions
   function renderHero() {
