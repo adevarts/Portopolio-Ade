@@ -2,21 +2,21 @@
 const DATA = {
   hero: [
     {
-      image: 'images/G2_ELITE.png',
+      image: 'images/G2_ELITE.webp',
       kicker: '3D • Environment • Unreal',
       title: 'Immersive worlds with clean, production-ready pipeline.',
       lead: 'Modular scenes, stylized props, and UE5 cinematics — optimized naming, LODs, and material instancing.',
   cta: [{text:'View Works', href:'#works', type:'primary'}, {text:'Work Experience', href:'#work-experience', type:'ghost'}]
     },
     {
-      image: 'images/G2_ELITE.png',
+      image: 'images/G2_ELITE.webp',
       kicker: 'Realtime & Optimization',
       title: 'Lower draw calls with trim/atlas workflows.',
       lead: 'Consistent texel density, UV packing, and master material instances for speed and reuse.',
   cta: [{text:'About Me', href:'#about', type:'primary'}, {text:'Hire Me', href:'#contact', type:'ghost'}]
     },
     {
-      image: 'images/G2_ELITE.png',
+      image: 'images/G2_ELITE.webp',
       kicker: 'Sequencer',
       title: 'Cinematic shots & trailers with UE5 Sequencer.',
       lead: 'From previs to final cut — lighting, timing, and composition for compelling storytelling.',
@@ -31,7 +31,7 @@ const DATA = {
   workExperience: [
     {
       id: 'w1',
-      logo: 'images/G2_ELITE.png',
+      logo: 'images/G2_ELITE.webp',
       name: 'BanaspaTeam (Indie Collaboration)',
       subtitle: 'Indie Game & Media Collaboration',
       duration: '8 bulan (2023-2024)',
@@ -43,11 +43,11 @@ const DATA = {
         'Modular pieces + trim sheet untuk reuse',
         'Optimized for UE5 (Nanite/Lumen-ready, LODs)'
       ],
-      image: 'images/G2_ELITE.png'
+      image: 'images/G2_ELITE.webp'
     },
     {
       id: 'w2',
-      logo: 'images/G2_ELITE.png',
+      logo: 'images/G2_ELITE.webp',
       name: 'Maxxima (Production Services)',
       subtitle: 'Production Services & Visualization',
       duration: '6 bulan (2024-sekarang)',
@@ -59,15 +59,15 @@ const DATA = {
         'Texel density konsisten & penamaan (SM_, MI_, T_*)',
         'Master Material instances dengan switches (AO/Detail/Rough)'
       ],
-      image: 'images/G2_ELITE.png'
+      image: 'images/G2_ELITE.webp'
     }
   ],
   works: [
-  {title:'Desert Oasis — UE5 Environment', category:'Environment', tools:'UE5 / Blender / Substance', tags:['Nanite','Lumen'], image:'images/G2_ELITE.png'},
-    {title:'Desert Oasis — UE5 Environment', category:'Environment', tools:'UE5 / Blender / Substance', tags:['Nanite','Lumen'], image:'images/G2_ELITE.png'},
-  {title:'Ichiraku Ramen – Stylized Scene', category:'Environment', tools:'Blender / Painter', tags:['Stylized','Trim Sheet'], image:'images/G2_ELITE.png'},
-  {title:'Props Pack — Industrial', category:'Props', tools:'Blender / Designer', tags:['Atlas','Optimization'], image:'images/G2_ELITE.png'},
-  {title:'Cinematic Shot — Mother\'s Day', category:'Cinematic', tools:'UE5 Sequencer / DaVinci', tags:['Sequencer','Lighting'], image:'images/G2_ELITE.png'}
+  {title:'Desert Oasis — UE5 Environment', category:'Environment', tools:'UE5 / Blender / Substance', tags:['Nanite','Lumen'], image:'images/G2_ELITE.webp'},
+    {title:'Desert Oasis — UE5 Environment', category:'Environment', tools:'UE5 / Blender / Substance', tags:['Nanite','Lumen'], image:'images/G2_ELITE.webp'},
+  {title:'Ichiraku Ramen – Stylized Scene', category:'Environment', tools:'Blender / Painter', tags:['Stylized','Trim Sheet'], image:'images/G2_ELITE.webp'},
+  {title:'Props Pack — Industrial', category:'Props', tools:'Blender / Designer', tags:['Atlas','Optimization'], image:'images/G2_ELITE.webp'},
+  {title:'Cinematic Shot — Mother\'s Day', category:'Cinematic', tools:'UE5 Sequencer / DaVinci', tags:['Sequencer','Lighting'], image:'images/G2_ELITE.webp'}
   ],
   social: [
     {name: 'ArtStation', url: 'https://www.artstation.com/adevart'},
