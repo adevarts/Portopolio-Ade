@@ -4,6 +4,43 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>AdevArts_Portfolio</title>
+  <!-- SEO meta tags -->
+  <!-- Primary description for search engines -->
+  <meta name="description" content="Portofolio Adev, 3D artist fokus environment, props, dan cinematic dengan pipeline produksi rapi menggunakan Blender, Substance, dan Unreal Engine 5.">
+  <!-- Instruct search engines to index and follow links -->
+  <meta name="robots" content="index,follow">
+  <!-- Author information -->
+  <meta name="author" content="Adev">
+  <!-- Canonical URL helps prevent duplicate content issues -->
+  <link rel="canonical" href="https://adevarts.github.io/Portopolio-Ade/">
+  <!-- Open Graph tags for social sharing -->
+  <meta property="og:title" content="Adev Arts Portfolio | 3D Environment, Props &amp; Cinematic Artist">
+  <meta property="og:description" content="Portofolio Adev, 3D artist fokus environment, props, dan cinematic dengan pipeline produksi rapi menggunakan Blender, Substance, dan Unreal Engine 5.">
+  <meta property="og:image" content="images/G2_ELITE.webp">
+  <meta property="og:url" content="https://adevarts.github.io/Portopolio-Ade/">
+  <meta property="og:type" content="website">
+  <!-- Twitter Card metadata -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Adev Arts Portfolio | 3D Environment, Props &amp; Cinematic Artist">
+  <meta name="twitter:description" content="Portofolio Adev, 3D artist fokus environment, props, dan cinematic dengan pipeline produksi rapi menggunakan Blender, Substance, dan Unreal Engine 5.">
+  <meta name="twitter:image" content="images/G2_ELITE.webp">
+  <!-- Structured data markup using JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Adev",
+    "jobTitle": "3D Artist",
+    "url": "https://adevarts.github.io/Portopolio-Ade/",
+    "image": "images/G2_ELITE.webp",
+    "sameAs": [
+      "https://www.artstation.com/adevart",
+      "https://www.behance.net",
+      "https://instagram.com",
+      "https://www.youtube.com/@ADevGaming"
+    ]
+  }
+  </script>
 <style>
   :root{ --max:1180px; --shadow:0 12px 34px rgba(0,0,0,.08) }
   *{box-sizing:border-box} html,body{height:100%}
@@ -197,7 +234,8 @@
     const heroHTML = DATA.hero.map((slide, index) => `
       <div class="slide ${index === 0 ? 'active' : ''}" style="position:absolute; inset:0; width:100%; height:100%;">
         <div class="overlay"></div>
-        <img src="${slide.image}" alt="Hero Image" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:1;">
+        <!-- Provide descriptive alt text for accessibility and SEO -->
+        <img src="${slide.image}" alt="${slide.title}" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:1;">
         <div class="wrap content" style="position:relative; z-index:2; height:100%; display:grid; place-items:center;">
           <div style="display:flex;flex-direction:column;align-items:center;gap:24px;">
             <div class="kicker">${slide.kicker}</div>
@@ -310,7 +348,10 @@
 
   // Works section
   const grid=document.getElementById('works-grid');
-  function card(w){return `<div class="work"><div class="thumb"><img src="${w.image}" alt="Work Image" style="width:100%;height:auto;object-fit:cover;border-radius:8px;"></div><div style="padding:14px"><div style="font-weight:700">${w.title}</div><div class="muted" style="font-size:12px">${w.category} • ${w.tools}</div><div style="margin-top:6px">${w.tags.map(t=>`<span class='pill'>${t}</span>`).join('')}</div></div></div>`}
+  // Card template for each work item with descriptive alt text for images
+  function card(w){
+    return `<div class="work"><div class="thumb"><img src="${w.image}" alt="${w.title}" style="width:100%;height:auto;object-fit:cover;border-radius:8px;"></div><div style="padding:14px"><div style="font-weight:700">${w.title}</div><div class="muted" style="font-size:12px">${w.category} • ${w.tools}</div><div style="margin-top:6px">${w.tags.map(t=>`<span class='pill'>${t}</span>`).join('')}</div></div></div>`;
+  }
   function render(f='All'){grid.innerHTML=(f==='All'?DATA.works:DATA.works.filter(w=>w.category===f)).map(card).join('')} 
   
   function setFilter(cat,el){document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active')); el.classList.add('active'); render(cat)}
