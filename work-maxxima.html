@@ -119,13 +119,13 @@
     background: #1a202c;
     transform: translateX(-2px);
   }
-  .stats-section{background:linear-gradient(135deg,#0e141b 0%,#1a1f2e 100%); color:#fff; padding:60px 20px; margin:40px 0; border-radius:16px}
+  .stats-section{background:#ffffff; color:#0e141b; padding:60px 20px; margin:40px 0; border-radius:16px; border:1px solid #eef2f7}
   .stats-grid{display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; max-width:1180px; margin:0 auto}
   .stat-item{text-align:center; padding:20px}
-  .stat-number{font-size:clamp(52px,8vw,88px); font-weight:900; line-height:1; color:#00d4ff; letter-spacing:-2px; margin:20px 0}
-  .stat-label{font-size:18px; color:#b0b9c3; margin:12px 0; font-weight:500; letter-spacing:0.5px}
-  .stat-plus{font-size:36px; color:#0b65ff; font-weight:700}
-  .stats-description{font-size:17px; color:#d1d5db; line-height:1.8; font-weight:400}
+  .stat-number{font-size:clamp(52px,8vw,88px); font-weight:900; line-height:1; color:#0b65ff; letter-spacing:-2px; margin:20px 0; display:inline}
+  .stat-label{font-size:18px; color:#0e141b; margin:12px 0; font-weight:600; letter-spacing:0.5px}
+  .stat-plus{font-size:clamp(52px,8vw,88px); color:#0b65ff; font-weight:700; display:inline; margin-left:8px}
+  .stats-description{font-size:17px; color:#4b5563; line-height:1.8; font-weight:400}
   .footer{border-top:1px solid #eef2f7; padding:20px 0; color:#6b7280; text-align:center}
   @media (max-width: 560px){ 
     .header { padding: 40px 0; }
@@ -176,12 +176,11 @@
   <div class="stats-section">
     <div class="stats-grid">
       <div class="stat-item">
-        <div class="stat-label">Make Model</div>
-        <div style="display:flex; align-items:baseline; justify-content:center; gap:8px">
-          <div class="stat-number" id="counter" data-target="400">0</div>
-          <div class="stat-plus">+</div>
+        <div class="stat-label">TOTAL ASSETS CREATED</div>
+        <div style="display:flex; align-items:baseline; justify-content:center">
+          <div class="stat-number" id="counter" data-target="400">0</div><div class="stat-plus">+</div>
         </div>
-        <div class="stat-label" style="color:#00d4ff; margin-top:8px; font-size:16px">Production Ready Assets</div>
+        <div class="stat-label" style="color:#0b65ff; margin-top:8px; font-size:16px">Production Ready</div>
       </div>
       <div class="stats-description">
         <p>Produksi konsisten dengan standar quality tertinggi, setiap asset melalui QA rigorous untuk memastikan kualitas visual dan technical excellence. Dari blockout hingga final render, semua mengikuti pipeline professional yang proven.</p>
