@@ -67,7 +67,17 @@ const DATA = {
     {title:'Desert Oasis — UE5 Environment', category:'Environment', tools:'UE5 / Blender / Substance', tags:['Nanite','Lumen'], image:'images/G2_ELITE.webp'},
   {title:'Ichiraku Ramen – Stylized Scene', category:'Environment', tools:'Blender / Painter', tags:['Stylized','Trim Sheet'], image:'images/G2_ELITE.webp'},
   {title:'Props Pack — Industrial', category:'Props', tools:'Blender / Designer', tags:['Atlas','Optimization'], image:'images/G2_ELITE.webp'},
+  {title:'Character Model — Hero', category:'Character', tools:'Blender / Substance', tags:['Rigged','PBR'], image:'images/G2_ELITE.webp'},
+  {title:'VFX Particles — Explosion', category:'VFX', tools:'UE5 Niagara / Blender', tags:['FX','Real-time'], image:'images/G2_ELITE.webp'},
   {title:'Cinematic Shot — Mother\'s Day', category:'Cinematic', tools:'UE5 Sequencer / DaVinci', tags:['Sequencer','Lighting'], image:'images/G2_ELITE.webp'}
+  ],
+  games: [
+  {title:'Game Title 1', platform:'PC', tools:'Unreal Engine 5', tags:['Action','Adventure'], image:'images/G2_ELITE.webp'},
+  {title:'Game Title 2', platform:'Android', tools:'Unity', tags:['Mobile','Casual'], image:'images/G2_ELITE.webp'},
+  {title:'Game Title 3', platform:'iPhone', tools:'Unity', tags:['Mobile','Puzzle'], image:'images/G2_ELITE.webp'},
+  {title:'Game Title 4', platform:'Xbox', tools:'Unreal Engine 5', tags:['Console','Shooter'], image:'images/G2_ELITE.webp'},
+  {title:'Game Title 5', platform:'PS', tools:'Unreal Engine 5', tags:['Console','RPG'], image:'images/G2_ELITE.webp'},
+  {title:'Game Title 6', platform:'PC', tools:'Unreal Engine 5', tags:['Strategy','Multiplayer'], image:'images/G2_ELITE.webp'}
   ],
   social: [
     {name: 'ArtStation', url: 'https://www.artstation.com/adevart'},
