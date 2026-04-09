@@ -81,15 +81,27 @@ const DATA = {
   ],
   milestones: [
     {
-      title: 'Global Game Jam 2024 - Participant', 
+      title: 'GameJam', 
       category: 'Featured Highlights', 
-      tags: ['gamejam', 'other'], 
+      tags: ['gamejam', 'competition'], 
       image: 'images/G2_ELITE.webp'
     },
     {
-      title: '3D Environment Design Masterclass', 
+      title: 'AgateCourse', 
+      category: 'Featured Highlights', 
+      tags: ['agate', 'course'], 
+      image: 'images/G2_ELITE.webp'
+    },
+    {
+      title: 'Course Udemy UE5', 
       category: 'Self-Education & Training', 
-      tags: ['udemy', 'agate'], 
+      tags: ['udemy', 'unreal engine 5'], 
+      image: 'images/G2_ELITE.webp'
+    },
+    {
+      title: 'Course Udemy Blender', 
+      category: 'Self-Education & Training', 
+      tags: ['udemy', 'blender'], 
       image: 'images/G2_ELITE.webp'
     }
   ],
