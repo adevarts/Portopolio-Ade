@@ -161,8 +161,10 @@
       </a>
       <div class="menu">
         <a href="#about">About</a>
-  <a href="#work-experience">Work Experience</a>
         <a href="#works">Works</a>
+        <a href="#work-experience">Work Experience</a>
+        <a href="#games">Games</a>
+        <a href="#milestones">Milestones</a>
         <a href="#social">Social</a>
         <a href="#contact">Contact</a>
       </div>
@@ -184,15 +186,6 @@
     </div></div>
   </section>
 
-  <section id="work-experience">
-    <div class="wrap"><div class="card pad">
-      <h2>Work Experience</h2>
-      <div class="work-experience" id="work-experience-grid">
-        <!-- Work experience cards will be generated dynamically by JavaScript -->
-      </div>
-    </div></div>
-  </section>
-
   <section id="works">
     <div class="wrap"><div class="card pad">
       <div style="display:flex; align-items:center; justify-content:space-between; gap:8px">
@@ -210,6 +203,15 @@
     </div></div>
   </section>
 
+  <section id="work-experience">
+    <div class="wrap"><div class="card pad">
+      <h2>Work Experience</h2>
+      <div class="work-experience" id="work-experience-grid">
+        <!-- Work experience cards will be generated dynamically by JavaScript -->
+      </div>
+    </div></div>
+  </section>
+
   <section id="games">
     <div class="wrap"><div class="card pad">
       <div style="display:flex; align-items:center; justify-content:space-between; gap:8px">
@@ -224,6 +226,15 @@
         </div>
       </div>
       <div id="games-grid" class="works" style="margin-top:16px"></div>
+    </div></div>
+  </section>
+
+  <section id="milestones">
+    <div class="wrap"><div class="card pad">
+      <h2>Milestones</h2>
+      <div class="work-experience" id="milestones-grid">
+        <!-- Milestones cards will be generated dynamically by JavaScript -->
+      </div>
     </div></div>
   </section>
 
@@ -302,6 +313,23 @@
     `).join('');
   }
 
+  function renderMilestones() {
+    const grid = document.getElementById('milestones-grid');
+    if(grid && DATA.milestones) {
+      grid.innerHTML = DATA.milestones.map(item => `
+      <div class="work-experience-item">
+        <div class="logo"><img src="${item.image}" alt="${item.title} Logo" style="width:100%;height:100%;object-fit:cover;border-radius:12px;"></div>
+          <div style="flex:1">
+            <div style="display:flex; align-items:center; justify-content:space-between; gap:8px">
+              <div><div style="font-weight:700">${item.title}</div><div class="muted" style="font-size:14px">${item.provider}</div><div class="muted" style="font-size:13px; margin-top:4px">${item.date}</div></div>
+            </div>
+            <div><p class="muted" style="font-size:14px; margin-top:8px; margin-bottom:0;">${item.description}</p></div>
+          </div>
+        </div>
+      `).join('');
+    }
+  }
+
   function renderSocial() {
     const socialSection = document.querySelector('#social .card.pad');
     socialSection.innerHTML = `
@@ -326,6 +354,7 @@
     renderHero();
     renderAbout();
     renderWorkExperience();
+    renderMilestones();
     renderSocial();
     renderContact();
   }

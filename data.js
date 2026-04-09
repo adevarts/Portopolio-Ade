@@ -79,6 +79,22 @@ const DATA = {
   {title:'Game Title 5', platform:'PS', tools:'Unreal Engine 5', tags:['Console','RPG'], image:'images/G2_ELITE.webp'},
   {title:'Game Title 6', platform:'PC', tools:'Unreal Engine 5', tags:['Strategy','Multiplayer'], image:'images/G2_ELITE.webp'}
   ],
+  milestones: [
+    {
+      title: 'Sertifikat 3D Environment Design', 
+      provider: 'Course / Udemy', 
+      date: '2023', 
+      description: 'Mempelajari dasar pembuatan environment 3D, pencahayaan, dan komposisi.', 
+      image: 'images/G2_ELITE.webp'
+    },
+    {
+      title: 'Belajar Unreal Engine 5 untuk Pemula', 
+      provider: 'Online Learning', 
+      date: '2024', 
+      description: 'Pengenalan struktur Lumen, Nanite, dan integrasi aset.', 
+      image: 'images/G2_ELITE.webp'
+    }
+  ],
   social: [
     {name: 'ArtStation', url: 'https://www.artstation.com/adevart'},
     {name: 'Behance', url: 'https://www.behance.net'},
