@@ -232,7 +232,7 @@
   <section id="milestones">
     <div class="wrap"><div class="card pad">
       <h2>Milestones</h2>
-      <div class="work-experience" id="milestones-grid">
+      <div class="works" id="milestones-grid">
         <!-- Milestones cards will be generated dynamically by JavaScript -->
       </div>
     </div></div>
@@ -317,15 +317,14 @@
     const grid = document.getElementById('milestones-grid');
     if(grid && DATA.milestones) {
       grid.innerHTML = DATA.milestones.map(item => `
-      <div class="work-experience-item">
-        <div class="logo"><img src="${item.image}" alt="${item.title} Logo" style="width:100%;height:100%;object-fit:cover;border-radius:12px;"></div>
-          <div style="flex:1">
-            <div style="display:flex; align-items:center; justify-content:space-between; gap:8px">
-              <div><div style="font-weight:700">${item.title}</div><div class="muted" style="font-size:14px">${item.provider}</div><div class="muted" style="font-size:13px; margin-top:4px">${item.date}</div></div>
-            </div>
-            <div><p class="muted" style="font-size:14px; margin-top:8px; margin-bottom:0;">${item.description}</p></div>
-          </div>
+      <div class="work" style="border:1px solid #eef2f7; border-radius:14px; overflow:hidden;">
+        <div style="aspect-ratio:16/9; width:100%;"><img src="${item.image}" alt="${item.title}" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div style="padding:16px;">
+          <div style="font-weight:700">${item.title}</div>
+          <div class="muted" style="font-size:13px; margin-top:4px">${item.provider} • ${item.date}</div>
+          <p class="muted" style="font-size:14px; margin-top:8px; margin-bottom:0;">${item.description}</p>
         </div>
+      </div>
       `).join('');
     }
   }
