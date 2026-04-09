@@ -150,6 +150,10 @@
   @media (max-width: 1024px){ .grid-2{grid-template-columns:1fr} .work-experience{grid-template-columns:1fr} .works{grid-template-columns:1fr 1fr} }
   @media (max-width: 560px){ .menu{display:none} .works{grid-template-columns:1fr} }
   .hp{position:absolute; left:-5000px} /* honeypot */
+  #lightbox { position: fixed; inset: 0; z-index: 1000; background: rgba(0,0,0,0.9); display: none; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s ease; }
+  #lightbox.show { opacity: 1; }
+  #lightbox img { max-width: 90%; max-height: 90vh; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+  #lightbox .close { position: absolute; top: 20px; right: 20px; color: white; font-size: 32px; cursor: pointer; background: transparent; border: none; font-weight: bold; }
 </style>
 </head>
 <body>
@@ -263,6 +267,11 @@
     <a href="#home" class="back-to-top" id="backToTop">↑</a>
   </div></footer>
 
+  <div id="lightbox" onclick="closeLightbox()">
+    <button class="close" aria-label="Close">&times;</button>
+    <img id="lightbox-img" src="" alt="">
+  </div>
+
 <script src="data.js"></script>
 <script>
   // Render functions
@@ -320,7 +329,7 @@
     `).join('');
   }
 
-  function milestoneCard(m){return `<div class="work"><div class="thumb"><img src="${m.image}" alt="${m.title}" style="width:100%;height:auto;object-fit:cover;border-radius:8px;"></div><div style="padding:14px"><div style="font-weight:700">${m.title}</div><div class="muted" style="font-size:12px">${m.category}</div><div style="margin-top:6px">${m.tags.map(t=>`<span class='pill'>${t}</span>`).join('')}</div></div></div>`}
+  function milestoneCard(m){return `<div class="work"><div class="thumb"><img src="${m.image}" alt="${m.title}" style="width:100%;height:auto;object-fit:cover;border-radius:8px;cursor:pointer;" onclick="openLightbox('${m.image}')"></div><div style="padding:14px"><div style="font-weight:700">${m.title}</div><div class="muted" style="font-size:12px">${m.category}</div><div style="margin-top:6px">${m.tags.map(t=>`<span class='pill'>${t}</span>`).join('')}</div></div></div>`}
   
   function renderMilestones(f='All'){
     const grid = document.getElementById('milestones-grid');
@@ -403,7 +412,7 @@
   const grid=document.getElementById('works-grid');
   // Card template for each work item with descriptive alt text for images
   function card(w){
-    return `<div class="work"><div class="thumb"><img src="${w.image}" alt="${w.title}" style="width:100%;height:auto;object-fit:cover;border-radius:8px;"></div><div style="padding:14px"><div style="font-weight:700">${w.title}</div><div class="muted" style="font-size:12px">${w.category} • ${w.tools}</div><div style="margin-top:6px">${w.tags.map(t=>`<span class='pill'>${t}</span>`).join('')}</div></div></div>`;
+    return `<div class="work"><div class="thumb"><img src="${w.image}" alt="${w.title}" style="width:100%;height:auto;object-fit:cover;border-radius:8px;cursor:pointer;" onclick="openLightbox('${w.image}')"></div><div style="padding:14px"><div style="font-weight:700">${w.title}</div><div class="muted" style="font-size:12px">${w.category} • ${w.tools}</div><div style="margin-top:6px">${w.tags.map(t=>`<span class='pill'>${t}</span>`).join('')}</div></div></div>`;
   }
   function render(f='All'){grid.innerHTML=(f==='All'?DATA.works:DATA.works.filter(w=>w.category===f)).map(card).join('')} 
   
@@ -411,9 +420,21 @@
   
   // Games section
   const gamesGrid=document.getElementById('games-grid');
-  function gameCard(g){return `<div class="work"><div class="thumb"><img src="${g.image}" alt="${g.title}" style="width:100%;height:auto;object-fit:cover;border-radius:8px;"></div><div style="padding:14px"><div style="font-weight:700">${g.title}</div><div class="muted" style="font-size:12px">${g.platform} • ${g.tools}</div><div style="margin-top:6px">${g.tags.map(t=>`<span class='pill'>${t}</span>`).join('')}</div></div></div>`}
+  function gameCard(g){return `<div class="work"><div class="thumb"><img src="${g.image}" alt="${g.title}" style="width:100%;height:auto;object-fit:cover;border-radius:8px;cursor:pointer;" onclick="openLightbox('${g.image}')"></div><div style="padding:14px"><div style="font-weight:700">${g.title}</div><div class="muted" style="font-size:12px">${g.platform} • ${g.tools}</div><div style="margin-top:6px">${g.tags.map(t=>`<span class='pill'>${t}</span>`).join('')}</div></div></div>`}
   function renderGames(f='All'){gamesGrid.innerHTML=(f==='All'?DATA.games:DATA.games.filter(g=>g.platform===f)).map(gameCard).join('')}
   function setGameFilter(plat,el){document.querySelectorAll('#games .chip').forEach(c=>c.classList.remove('active')); el.classList.add('active'); renderGames(plat)}
+  
+  function openLightbox(src) {
+    const lb = document.getElementById('lightbox');
+    document.getElementById('lightbox-img').src = src;
+    lb.style.display = 'flex';
+    setTimeout(() => lb.classList.add('show'), 10);
+  }
+  function closeLightbox() {
+    const lb = document.getElementById('lightbox');
+    lb.classList.remove('show');
+    setTimeout(() => lb.style.display = 'none', 300);
+  }
   
   function toggle(id){const el=document.getElementById(id); el.style.display=el.style.display==='none'||!el.style.display?'block':'none'}
   

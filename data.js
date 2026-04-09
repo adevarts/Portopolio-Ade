@@ -6,21 +6,21 @@ const DATA = {
       kicker: '3D • Environment • Unreal',
       title: 'Immersive worlds with clean, production-ready pipeline.',
       lead: 'Modular scenes, stylized props, and UE5 cinematics — optimized naming, LODs, and material instancing.',
-  cta: [{text:'View Works', href:'#works', type:'primary'}, {text:'Work Experience', href:'#work-experience', type:'ghost'}]
+      cta: [{ text: 'View Works', href: '#works', type: 'primary' }, { text: 'Work Experience', href: '#work-experience', type: 'ghost' }]
     },
     {
       image: 'images/G2_ELITE.webp',
       kicker: 'Realtime & Optimization',
       title: 'Lower draw calls with trim/atlas workflows.',
       lead: 'Consistent texel density, UV packing, and master material instances for speed and reuse.',
-  cta: [{text:'About Me', href:'#about', type:'primary'}, {text:'Hire Me', href:'#contact', type:'ghost'}]
+      cta: [{ text: 'About Me', href: '#about', type: 'primary' }, { text: 'Hire Me', href: '#contact', type: 'ghost' }]
     },
     {
       image: 'images/G2_ELITE.webp',
       kicker: 'Sequencer',
       title: 'Cinematic shots & trailers with UE5 Sequencer.',
       lead: 'From previs to final cut — lighting, timing, and composition for compelling storytelling.',
-  cta: [{text:'See Cinematics', href:'#works', type:'primary'}, {text:'YouTube', href:'#social', type:'ghost'}]
+      cta: [{ text: 'See Cinematics', href: '#works', type: 'primary' }, { text: 'YouTube', href: '#social', type: 'ghost' }]
     }
   ],
   about: {
@@ -63,53 +63,53 @@ const DATA = {
     }
   ],
   works: [
-  {title:'Desert Oasis — UE5 Environment', category:'Environment', tools:'UE5 / Blender / Substance', tags:['Nanite','Lumen'], image:'images/G2_ELITE.webp'},
-    {title:'Desert Oasis — UE5 Environment', category:'Environment', tools:'UE5 / Blender / Substance', tags:['Nanite','Lumen'], image:'images/G2_ELITE.webp'},
-  {title:'Ichiraku Ramen – Stylized Scene', category:'Environment', tools:'Blender / Painter', tags:['Stylized','Trim Sheet'], image:'images/G2_ELITE.webp'},
-  {title:'Props Pack — Industrial', category:'Props', tools:'Blender / Designer', tags:['Atlas','Optimization'], image:'images/G2_ELITE.webp'},
-  {title:'Character Model — Hero', category:'Character', tools:'Blender / Substance', tags:['Rigged','PBR'], image:'images/G2_ELITE.webp'},
-  {title:'VFX Particles — Explosion', category:'VFX', tools:'UE5 Niagara / Blender', tags:['FX','Real-time'], image:'images/G2_ELITE.webp'},
-  {title:'Cinematic Shot — Mother\'s Day', category:'Cinematic', tools:'UE5 Sequencer / DaVinci', tags:['Sequencer','Lighting'], image:'images/G2_ELITE.webp'}
+    { title: 'Desert Oasis — UE5 Environment', category: 'Environment', tools: 'UE5 / Blender / Substance', tags: ['Nanite', 'Lumen'], image: 'images/G2_ELITE.webp' },
+    { title: 'Desert Oasis — UE5 Environment', category: 'Environment', tools: 'UE5 / Blender / Substance', tags: ['Nanite', 'Lumen'], image: 'images/G2_ELITE.webp' },
+    { title: 'Ichiraku Ramen – Stylized Scene', category: 'Environment', tools: 'Blender / Painter', tags: ['Stylized', 'Trim Sheet'], image: 'images/G2_ELITE.webp' },
+    { title: 'Props Pack — Industrial', category: 'Props', tools: 'Blender / Designer', tags: ['Atlas', 'Optimization'], image: 'images/G2_ELITE.webp' },
+    { title: 'Character Model — Hero', category: 'Character', tools: 'Blender / Substance', tags: ['Rigged', 'PBR'], image: 'images/G2_ELITE.webp' },
+    { title: 'VFX Particles — Explosion', category: 'VFX', tools: 'UE5 Niagara / Blender', tags: ['FX', 'Real-time'], image: 'images/G2_ELITE.webp' },
+    { title: 'Cinematic Shot — Mother\'s Day', category: 'Cinematic', tools: 'UE5 Sequencer / DaVinci', tags: ['Sequencer', 'Lighting'], image: 'images/G2_ELITE.webp' }
   ],
   games: [
-  {title:'Game Title 1', platform:'PC', tools:'Unreal Engine 5', tags:['Action','Adventure'], image:'images/G2_ELITE.webp'},
-  {title:'Game Title 2', platform:'Android', tools:'Unity', tags:['Mobile','Casual'], image:'images/G2_ELITE.webp'},
-  {title:'Game Title 3', platform:'iPhone', tools:'Unity', tags:['Mobile','Puzzle'], image:'images/G2_ELITE.webp'},
-  {title:'Game Title 4', platform:'Xbox', tools:'Unreal Engine 5', tags:['Console','Shooter'], image:'images/G2_ELITE.webp'},
-  {title:'Game Title 5', platform:'PS', tools:'Unreal Engine 5', tags:['Console','RPG'], image:'images/G2_ELITE.webp'},
-  {title:'Game Title 6', platform:'PC', tools:'Unreal Engine 5', tags:['Strategy','Multiplayer'], image:'images/G2_ELITE.webp'}
+    { title: 'Game Title 1', platform: 'PC', tools: 'Unreal Engine 5', tags: ['Action', 'Adventure'], image: 'images/G2_ELITE.webp' },
+    { title: 'Game Title 2', platform: 'Android', tools: 'Unity', tags: ['Mobile', 'Casual'], image: 'images/G2_ELITE.webp' },
+    { title: 'Game Title 3', platform: 'iPhone', tools: 'Unity', tags: ['Mobile', 'Puzzle'], image: 'images/G2_ELITE.webp' },
+    { title: 'Game Title 4', platform: 'Xbox', tools: 'Unreal Engine 5', tags: ['Console', 'Shooter'], image: 'images/G2_ELITE.webp' },
+    { title: 'Game Title 5', platform: 'PS', tools: 'Unreal Engine 5', tags: ['Console', 'RPG'], image: 'images/G2_ELITE.webp' },
+    { title: 'Game Title 6', platform: 'PC', tools: 'Unreal Engine 5', tags: ['Strategy', 'Multiplayer'], image: 'images/G2_ELITE.webp' }
   ],
   milestones: [
     {
-      title: 'GameJam', 
-      category: 'Featured Highlights', 
-      tags: ['gamejam', 'competition'], 
+      title: 'GameJam',
+      category: 'Featured Highlights',
+      tags: ['gamejam', 'competition'],
       image: 'images/G2_ELITE.webp'
     },
     {
-      title: 'AgateCourse', 
-      category: 'Featured Highlights', 
-      tags: ['agate', 'course'], 
+      title: 'AgateCourse',
+      category: 'Featured Highlights',
+      tags: ['agate', 'course'],
       image: 'images/G2_ELITE.webp'
     },
     {
-      title: 'Course Udemy UE5', 
-      category: 'Self-Education & Training', 
-      tags: ['udemy', 'unreal engine 5'], 
+      title: 'Course Udemy UE5',
+      category: 'Self-Education & Training',
+      tags: ['udemy', 'unreal engine 5'],
       image: 'images/G2_ELITE.webp'
     },
     {
-      title: 'Course Udemy Blender', 
-      category: 'Self-Education & Training', 
-      tags: ['udemy', 'blender'], 
+      title: 'Course Udemy Blender',
+      category: 'Self-Education & Training',
+      tags: ['udemy', 'blender'],
       image: 'images/G2_ELITE.webp'
     }
   ],
   social: [
-    {name: 'ArtStation', url: 'https://www.artstation.com/adevart'},
-    {name: 'Behance', url: 'https://www.behance.net'},
-    {name: 'Instagram', url: 'https://instagram.com'},
-    {name: 'YouTube', url: 'https://www.youtube.com/@ADevGaming'}
+    { name: 'ArtStation', url: 'https://www.artstation.com/adevart' },
+    { name: 'Behance', url: 'https://www.behance.net' },
+    { name: 'Instagram', url: 'https://www.instagram.com/adevarts' },
+    { name: 'YouTube', url: 'https://www.youtube.com/@ADevGaming' }
   ],
   contact: {
     title: 'Contact',
