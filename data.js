@@ -81,17 +81,15 @@ const DATA = {
   ],
   milestones: [
     {
-      title: 'Sertifikat 3D Environment Design', 
-      provider: 'Course / Udemy', 
-      date: '2023', 
-      description: 'Mempelajari dasar pembuatan environment 3D, pencahayaan, dan komposisi.', 
+      title: 'Global Game Jam 2024 - Participant', 
+      category: 'Featured Highlights', 
+      tags: ['gamejam', 'other'], 
       image: 'images/G2_ELITE.webp'
     },
     {
-      title: 'Belajar Unreal Engine 5 untuk Pemula', 
-      provider: 'Online Learning', 
-      date: '2024', 
-      description: 'Pengenalan struktur Lumen, Nanite, dan integrasi aset.', 
+      title: '3D Environment Design Masterclass', 
+      category: 'Self-Education & Training', 
+      tags: ['udemy', 'agate'], 
       image: 'images/G2_ELITE.webp'
     }
   ],
