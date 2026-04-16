@@ -112,9 +112,11 @@
   .work-experience-item{display:flex; gap:14px; padding:16px; border:1px solid #eef2f7; border-radius:14px; align-items:flex-start}
   .logo{height:48px; width:48px; border-radius:12px; display:grid; place-items:center; background:#000; color:#fff; font-weight:800}
   .pill{display:inline-block; padding:4px 10px; border-radius:999px; border:1px solid #eef2f7; background:#f7f9fc; font-size:12px; margin-right:6px; margin-top:4px}
-  .works{display:flex; overflow-x:auto; gap:16px; padding-bottom:12px; scrollbar-width:thin; scroll-snap-type:x mandatory}
-  .works::-webkit-scrollbar{height:8px} .works::-webkit-scrollbar-track{background:transparent} .works::-webkit-scrollbar-thumb{background:#cbd5e1; border-radius:4px}
-  .work{flex:0 0 32%; min-width:280px; scroll-snap-align:start; border:1px solid #eef2f7; border-radius:14px; overflow:hidden; background:#fff}
+  .works{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
+  .work{border:1px solid #eef2f7; border-radius:14px; overflow:hidden; background:#fff}
+  .pagination{display:flex; justify-content:center; gap:8px; margin-top:24px}
+  .page-btn{width:36px; height:36px; border-radius:8px; border:1px solid #eef2f7; background:#fff; cursor:pointer; font-weight:600; font-size:14px}
+  .page-btn.active{background:#0b65ff; color:#fff; border-color:#0b65ff}
   .thumb{aspect-ratio:16/9; background:#f2f4f8; display:grid; place-items:center}
   .muted{color:#6b7280}
   .filters{display:flex; gap:8px; flex-wrap:wrap}
@@ -148,9 +150,10 @@
     opacity: 1;
     visibility: visible;
   }
-  @media (max-width: 1024px){ .grid-2{grid-template-columns:1fr} .work-experience{grid-template-columns:1fr} }
+  @media (max-width: 1024px){ .grid-2{grid-template-columns:1fr} .work-experience{grid-template-columns:1fr} .works{grid-template-columns:1fr 1fr} }
   .menu { transition: transform 0.3s ease; }
   @media (max-width: 560px){ 
+    .works{grid-template-columns:1fr} 
     .menu {
       position: fixed;
       bottom: 0; left: 0; right: 0;
@@ -231,6 +234,7 @@
         </div>
       </div>
       <div id="works-grid" class="works" style="margin-top:16px"></div>
+      <div id="works-pagination" class="pagination"></div>
     </div></div>
   </section>
 
@@ -257,6 +261,7 @@
         </div>
       </div>
       <div id="games-grid" class="works" style="margin-top:16px"></div>
+      <div id="games-pagination" class="pagination"></div>
     </div></div>
   </section>
 
@@ -272,6 +277,7 @@
       <div class="works" id="milestones-grid" style="margin-top:16px">
         <!-- Milestones cards will be generated dynamically by JavaScript -->
       </div>
+      <div id="milestones-pagination" class="pagination"></div>
     </div></div>
   </section>
 
@@ -357,17 +363,34 @@
 
   function milestoneCard(m){return `<div class="work"><div class="thumb"><img src="${m.image}" alt="${m.title}" style="width:100%;height:auto;object-fit:cover;border-radius:8px;cursor:pointer;" onclick="openLightbox('${m.image}')"></div><div style="padding:14px"><div style="font-weight:700">${m.title}</div><div class="muted" style="font-size:12px">${m.category}</div><div style="margin-top:6px">${m.tags.map(t=>`<span class='pill'>${t}</span>`).join('')}</div></div></div>`}
   
-  function renderMilestones(f='Featured Highlights'){
+  let currentMilestoneFilter = 'Featured Highlights', milestonesPage = 1;
+  function renderMilestones(f, p=1){
+    if(f !== undefined) currentMilestoneFilter = f;
+    milestonesPage = p;
     const grid = document.getElementById('milestones-grid');
     if(grid && DATA.milestones) {
-      grid.innerHTML=(f==='All'?DATA.milestones:DATA.milestones.filter(m=>m.category===f)).slice(0,6).map(milestoneCard).join('');
+      const items = currentMilestoneFilter==='All'?DATA.milestones:DATA.milestones.filter(m=>m.category===currentMilestoneFilter);
+      grid.innerHTML=items.slice((milestonesPage-1)*6, milestonesPage*6).map(milestoneCard).join('');
+      renderPagination('milestones-pagination', items.length, milestonesPage, 'setMilestonesPage');
     }
   }
-
+  function setMilestonesPage(p) { renderMilestones(undefined, p); }
   function setMilestoneFilter(cat,el){
     document.querySelectorAll('#milestones .chip').forEach(c=>c.classList.remove('active')); 
     if(el) el.classList.add('active'); 
-    renderMilestones(cat);
+    renderMilestones(cat, 1);
+  }
+
+  function renderPagination(id, total, current, callback) {
+    const el = document.getElementById(id);
+    if(!el) return;
+    const pages = Math.ceil(total / 6);
+    if(pages <= 1) { el.innerHTML = ''; return; }
+    let html = '';
+    for(let i=1; i<=pages; i++) {
+      html += `<button class="page-btn ${i===current?'active':''}" onclick="${callback}(${i})">${i}</button>`;
+    }
+    el.innerHTML = html;
   }
 
   function renderSocial() {
@@ -450,19 +473,33 @@
 
   // Works section
   const grid=document.getElementById('works-grid');
-  // Card template for each work item with descriptive alt text for images
   function card(w){
     return `<div class="work"><div class="thumb"><img src="${w.image}" alt="${w.title}" style="width:100%;height:auto;object-fit:cover;border-radius:8px;cursor:pointer;" onclick="openLightbox('${w.image}')"></div><div style="padding:14px"><div style="font-weight:700">${w.title}</div><div class="muted" style="font-size:12px">${w.category} • ${w.tools}</div><div style="margin-top:6px">${w.tags.map(t=>`<span class='pill'>${t}</span>`).join('')}</div></div></div>`;
   }
-  function render(f='All'){grid.innerHTML=(f==='All'?DATA.works:DATA.works.filter(w=>w.category===f)).slice(0,6).map(card).join('')} 
-  
-  function setFilter(cat,el){document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active')); el.classList.add('active'); render(cat)}
+  let currentWorksFilter = 'All', worksPage = 1;
+  function render(f, p=1){
+    if(f !== undefined) currentWorksFilter = f;
+    worksPage = p;
+    const items = currentWorksFilter==='All'?DATA.works:DATA.works.filter(w=>w.category===currentWorksFilter);
+    grid.innerHTML=items.slice((worksPage-1)*6, worksPage*6).map(card).join('');
+    renderPagination('works-pagination', items.length, worksPage, 'setWorksPage');
+  }
+  function setWorksPage(p) { render(undefined, p); }
+  function setFilter(cat,el){document.querySelectorAll('#works .chip').forEach(c=>c.classList.remove('active')); el.classList.add('active'); render(cat, 1);}
   
   // Games section
   const gamesGrid=document.getElementById('games-grid');
   function gameCard(g){return `<div class="work"><div class="thumb"><img src="${g.image}" alt="${g.title}" style="width:100%;height:auto;object-fit:cover;border-radius:8px;cursor:pointer;" onclick="openLightbox('${g.image}')"></div><div style="padding:14px"><div style="font-weight:700">${g.title}</div><div class="muted" style="font-size:12px">${g.platform} • ${g.tools}</div><div style="margin-top:6px">${g.tags.map(t=>`<span class='pill'>${t}</span>`).join('')}</div></div></div>`}
-  function renderGames(f='All'){gamesGrid.innerHTML=(f==='All'?DATA.games:DATA.games.filter(g=>g.platform===f)).slice(0,6).map(gameCard).join('')}
-  function setGameFilter(plat,el){document.querySelectorAll('#games .chip').forEach(c=>c.classList.remove('active')); el.classList.add('active'); renderGames(plat)}
+  let currentGamesFilter = 'All', gamesPage = 1;
+  function renderGames(f, p=1){
+    if(f !== undefined) currentGamesFilter = f;
+    gamesPage = p;
+    const items = currentGamesFilter==='All'?DATA.games:DATA.games.filter(g=>g.platform===currentGamesFilter);
+    gamesGrid.innerHTML=items.slice((gamesPage-1)*6, gamesPage*6).map(gameCard).join('');
+    renderPagination('games-pagination', items.length, gamesPage, 'setGamesPage');
+  }
+  function setGamesPage(p) { renderGames(undefined, p); }
+  function setGameFilter(plat,el){document.querySelectorAll('#games .chip').forEach(c=>c.classList.remove('active')); el.classList.add('active'); renderGames(plat, 1);}
   
   function openLightbox(src) {
     const lb = document.getElementById('lightbox');
