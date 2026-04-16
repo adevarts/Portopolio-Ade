@@ -112,8 +112,9 @@
   .work-experience-item{display:flex; gap:14px; padding:16px; border:1px solid #eef2f7; border-radius:14px; align-items:flex-start}
   .logo{height:48px; width:48px; border-radius:12px; display:grid; place-items:center; background:#000; color:#fff; font-weight:800}
   .pill{display:inline-block; padding:4px 10px; border-radius:999px; border:1px solid #eef2f7; background:#f7f9fc; font-size:12px; margin-right:6px; margin-top:4px}
-  .works{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
-  .work{border:1px solid #eef2f7; border-radius:14px; overflow:hidden; background:#fff}
+  .works{display:flex; overflow-x:auto; gap:16px; padding-bottom:12px; scrollbar-width:thin; scroll-snap-type:x mandatory}
+  .works::-webkit-scrollbar{height:8px} .works::-webkit-scrollbar-track{background:transparent} .works::-webkit-scrollbar-thumb{background:#cbd5e1; border-radius:4px}
+  .work{flex:0 0 32%; min-width:280px; scroll-snap-align:start; border:1px solid #eef2f7; border-radius:14px; overflow:hidden; background:#fff}
   .thumb{aspect-ratio:16/9; background:#f2f4f8; display:grid; place-items:center}
   .muted{color:#6b7280}
   .filters{display:flex; gap:8px; flex-wrap:wrap}
@@ -147,10 +148,9 @@
     opacity: 1;
     visibility: visible;
   }
-  @media (max-width: 1024px){ .grid-2{grid-template-columns:1fr} .work-experience{grid-template-columns:1fr} .works{grid-template-columns:1fr 1fr} }
+  @media (max-width: 1024px){ .grid-2{grid-template-columns:1fr} .work-experience{grid-template-columns:1fr} }
   .menu { transition: transform 0.3s ease; }
   @media (max-width: 560px){ 
-    .works{grid-template-columns:1fr} 
     .menu {
       position: fixed;
       bottom: 0; left: 0; right: 0;
@@ -360,7 +360,7 @@
   function renderMilestones(f='Featured Highlights'){
     const grid = document.getElementById('milestones-grid');
     if(grid && DATA.milestones) {
-      grid.innerHTML=(f==='All'?DATA.milestones:DATA.milestones.filter(m=>m.category===f)).map(milestoneCard).join('');
+      grid.innerHTML=(f==='All'?DATA.milestones:DATA.milestones.filter(m=>m.category===f)).slice(0,6).map(milestoneCard).join('');
     }
   }
 
@@ -454,14 +454,14 @@
   function card(w){
     return `<div class="work"><div class="thumb"><img src="${w.image}" alt="${w.title}" style="width:100%;height:auto;object-fit:cover;border-radius:8px;cursor:pointer;" onclick="openLightbox('${w.image}')"></div><div style="padding:14px"><div style="font-weight:700">${w.title}</div><div class="muted" style="font-size:12px">${w.category} • ${w.tools}</div><div style="margin-top:6px">${w.tags.map(t=>`<span class='pill'>${t}</span>`).join('')}</div></div></div>`;
   }
-  function render(f='All'){grid.innerHTML=(f==='All'?DATA.works:DATA.works.filter(w=>w.category===f)).map(card).join('')} 
+  function render(f='All'){grid.innerHTML=(f==='All'?DATA.works:DATA.works.filter(w=>w.category===f)).slice(0,6).map(card).join('')} 
   
   function setFilter(cat,el){document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active')); el.classList.add('active'); render(cat)}
   
   // Games section
   const gamesGrid=document.getElementById('games-grid');
   function gameCard(g){return `<div class="work"><div class="thumb"><img src="${g.image}" alt="${g.title}" style="width:100%;height:auto;object-fit:cover;border-radius:8px;cursor:pointer;" onclick="openLightbox('${g.image}')"></div><div style="padding:14px"><div style="font-weight:700">${g.title}</div><div class="muted" style="font-size:12px">${g.platform} • ${g.tools}</div><div style="margin-top:6px">${g.tags.map(t=>`<span class='pill'>${t}</span>`).join('')}</div></div></div>`}
-  function renderGames(f='All'){gamesGrid.innerHTML=(f==='All'?DATA.games:DATA.games.filter(g=>g.platform===f)).map(gameCard).join('')}
+  function renderGames(f='All'){gamesGrid.innerHTML=(f==='All'?DATA.games:DATA.games.filter(g=>g.platform===f)).slice(0,6).map(gameCard).join('')}
   function setGameFilter(plat,el){document.querySelectorAll('#games .chip').forEach(c=>c.classList.remove('active')); el.classList.add('active'); renderGames(plat)}
   
   function openLightbox(src) {
