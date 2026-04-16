@@ -148,7 +148,34 @@
     visibility: visible;
   }
   @media (max-width: 1024px){ .grid-2{grid-template-columns:1fr} .work-experience{grid-template-columns:1fr} .works{grid-template-columns:1fr 1fr} }
-  @media (max-width: 560px){ .menu{display:none} .works{grid-template-columns:1fr} }
+  .menu { transition: transform 0.3s ease; }
+  @media (max-width: 560px){ 
+    .works{grid-template-columns:1fr} 
+    .menu {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      background: #ffffff;
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+      z-index: 100;
+      padding: 12px 16px;
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .menu::-webkit-scrollbar { display: none; }
+    .menu.hidden-down { transform: translateY(100%); }
+    .menu a {
+      color: #0e141b;
+      background: #f7f9fc;
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: 1px solid #eef2f7;
+      white-space: nowrap;
+      font-size: 13px;
+    }
+  }
   .hp{position:absolute; left:-5000px} /* honeypot */
   #lightbox { position: fixed; inset: 0; z-index: 1000; background: rgba(0,0,0,0.9); display: none; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s ease; }
   #lightbox.show { opacity: 1; }
@@ -374,7 +401,21 @@
 
   // Navigation & Hero Slider
   const nav=document.getElementById('nav'); 
-  const toggleNav=()=>window.scrollY>20?nav.classList.add('solid'):nav.classList.remove('solid'); 
+  const menu=document.querySelector('.menu');
+  let lastScrollY = window.scrollY;
+  const toggleNav=()=>{
+    window.scrollY>20?nav.classList.add('solid'):nav.classList.remove('solid');
+    if (window.innerWidth <= 560) {
+      if (window.scrollY > lastScrollY && window.scrollY > 50) {
+        menu.classList.add('hidden-down');
+      } else {
+        menu.classList.remove('hidden-down');
+      }
+    } else {
+      menu.classList.remove('hidden-down');
+    }
+    lastScrollY = window.scrollY;
+  };
   document.addEventListener('scroll',toggleNav); toggleNav();
   
   let slides, dots, idx=0, timer;
