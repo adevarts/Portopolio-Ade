@@ -42,13 +42,13 @@
   }
   </script>
 <style>
-  :root{ --max:1180px; --shadow:0 12px 34px rgba(0,0,0,.08) }
+  :root{ --max:1180px; --shadow:0 12px 34px rgba(0,0,0,.3); color-scheme: dark; }
   *{box-sizing:border-box} html,body{height:100%}
-  body{margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Helvetica, Arial; background:#ffffff; color:#0e141b; line-height:1.6}
+  body{margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Helvetica, Arial; background:#121212; color:#ffffff; line-height:1.6}
   a{color:inherit}
   .wrap{max-width:var(--max); margin:0 auto; padding:0 20px}
   .nav{position:fixed; inset:0 0 auto 0; height:72px; z-index:50; display:flex; align-items:center; transition: background .25s ease, border-color .25s ease; background:linear-gradient(to bottom, rgba(0,0,0,.45), rgba(0,0,0,0)); color:#fff}
-  .nav.solid{background:#ffffff; color:#0e141b; border-bottom:1px solid #eef2f7}
+  .nav.solid{background:#121212; color:#ffffff; border-bottom:1px solid rgba(255,255,255,0.1)}
   .nav .inner {
     display: flex;
     align-items: center;
@@ -87,7 +87,7 @@
     left: 0;
     right: 0;
     height: 150px;
-    background: linear-gradient(to bottom, rgba(255,255,255,0), #ffffff);
+    background: linear-gradient(to bottom, rgba(18,18,18,0), #121212);
     z-index: 2;
     pointer-events: none;
   }
@@ -116,36 +116,37 @@
   .dot{height:8px; width:8px; border-radius:999px; background:rgba(255,255,255,.5); transition:all .2s ease; cursor:pointer}
   .dot.active{width:24px; background:#fff}
   section{padding:64px 0} h2{margin:0 0 12px}
-  .card{background:#fff; border:1px solid #eef2f7; border-radius:16px; box-shadow: var(--shadow)}
+  .card{background:#1e1e1e; border:1px solid rgba(255,255,255,0.1); border-radius:16px; box-shadow: var(--shadow)}
   .pad{padding:28px}
   .grid-2{display:grid; grid-template-columns:1fr 1fr; gap:18px}
   .work-experience{display:grid; grid-template-columns:1fr 1fr; gap:16px}
-  .work-experience-item{display:flex; gap:14px; padding:16px; border:1px solid #eef2f7; border-radius:14px; align-items:flex-start}
+  .work-experience-item{display:flex; gap:14px; padding:16px; border:1px solid rgba(255,255,255,0.1); border-radius:14px; align-items:flex-start}
   .logo{height:48px; width:48px; border-radius:12px; display:grid; place-items:center; background:#000; color:#fff; font-weight:800}
-  .pill{display:inline-block; padding:4px 10px; border-radius:999px; border:1px solid #eef2f7; background:#f7f9fc; font-size:12px; margin-right:6px; margin-top:4px}
+  .pill{display:inline-block; padding:4px 10px; border-radius:999px; border:1px solid rgba(255,255,255,0.1); background:#2c2c2c; font-size:12px; margin-right:6px; margin-top:4px}
   .works{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
-  .work{border:1px solid #eef2f7; border-radius:14px; overflow:hidden; background:#fff}
+  .work{border:1px solid rgba(255,255,255,0.1); border-radius:14px; overflow:hidden; background:#1e1e1e}
   .pagination{display:flex; justify-content:center; gap:8px; margin-top:24px}
-  .page-btn{width:36px; height:36px; border-radius:8px; border:1px solid #eef2f7; background:#fff; cursor:pointer; font-weight:600; font-size:14px}
+  .page-btn{width:36px; height:36px; border-radius:8px; border:1px solid rgba(255,255,255,0.1); background:#1e1e1e; color:#fff; cursor:pointer; font-weight:600; font-size:14px}
   .page-btn.active{background:#0b65ff; color:#fff; border-color:#0b65ff}
-  .thumb{aspect-ratio:16/9; background:#f2f4f8; display:grid; place-items:center}
-  .muted{color:#6b7280}
+  .thumb{aspect-ratio:16/9; background:#2c2c2c; display:grid; place-items:center}
+  .muted{color:#a1a1aa}
   .filters{display:flex; gap:8px; flex-wrap:wrap}
-  .chip{padding:8px 12px; border-radius:999px; border:1px solid #eef2f7; background:#fff; cursor:pointer; font-size:14px}
+  .chip{padding:8px 12px; border-radius:999px; border:1px solid rgba(255,255,255,0.1); background:#1e1e1e; color:#fff; cursor:pointer; font-size:14px}
   .chip.active{background:#0b65ff; color:#fff; border-color:#0b65ff}
   .socials{display:flex; gap:10px; flex-wrap:wrap}
-  .socials a{border:1px solid #eef2f7; padding:10px 12px; border-radius:10px; text-decoration:none; color:inherit}
+  .socials a{border:1px solid rgba(255,255,255,0.1); padding:10px 12px; border-radius:10px; text-decoration:none; color:inherit}
   .contact{display:grid; grid-template-columns:1fr 1fr; gap:16px}
-  input,textarea{width:100%; padding:10px 12px; border:1px solid #eef2f7; border-radius:10px; font:inherit}
-  .footer{border-top:1px solid #eef2f7; padding:20px 0; color:#6b7280; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px}
+  input,textarea{width:100%; padding:10px 12px; border:1px solid rgba(255,255,255,0.1); background:#1e1e1e; color:#fff; border-radius:10px; font:inherit}
+  .footer{border-top:1px solid rgba(255,255,255,0.1); padding:20px 0; color:#a1a1aa; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px}
   .back-to-top {
     position: fixed;
     bottom: 20px;
     right: 20px;
     width: 40px;
     height: 40px;
-    background: #fff;
-    border: 1px solid #eef2f7;
+    background: #1e1e1e;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.1);
     border-radius: 999px;
     display: grid;
     place-items: center;
@@ -168,8 +169,8 @@
     .menu {
       position: fixed;
       bottom: 0; left: 0; right: 0;
-      background: #ffffff;
-      box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+      background: #121212;
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.3);
       z-index: 100;
       padding: 12px 16px;
       display: flex;
@@ -181,11 +182,11 @@
     .menu::-webkit-scrollbar { display: none; }
     .menu.hidden-down { transform: translateY(100%); }
     .menu a {
-      color: #0e141b;
-      background: #f7f9fc;
+      color: #ffffff;
+      background: #1e1e1e;
       padding: 8px 16px;
       border-radius: 999px;
-      border: 1px solid #eef2f7;
+      border: 1px solid rgba(255,255,255,0.1);
       white-space: nowrap;
       font-size: 13px;
     }
@@ -364,7 +365,7 @@
         <div style="flex:1">
           <div style="display:flex; align-items:center; justify-content:space-between; gap:8px">
             <div><div style="font-weight:700">${item.name}</div><div class="muted" style="font-size:14px">${item.subtitle}</div><div class="muted" style="font-size:13px; margin-top:4px">${item.duration}</div></div>
-            <a class="chip" href="${item.link}" target="_blank" rel="noreferrer" style="text-decoration:none; display:inline-block; padding:8px 12px; border-radius:999px; border:1px solid #eef2f7; background:#fff; cursor:pointer; font-size:14px">Read more</a>
+            <a class="chip" href="${item.link}" target="_blank" rel="noreferrer" style="text-decoration:none; display:inline-block; padding:8px 12px; border-radius:999px; border:1px solid rgba(255,255,255,0.1); background:#1e1e1e; color:#fff; cursor:pointer; font-size:14px">Read more</a>
           </div>
           <div>${item.tags.map(tag => `<span class="pill">${tag}</span>`).join('')}</div>
         </div>
@@ -419,7 +420,7 @@
     contactSection.innerHTML = `
       <h2>${DATA.contact.title}</h2>
       <div class="muted" style="font-size:16px">${DATA.contact.subtitle}</div>
-      <code style="display:inline-block; background:#fff; border:1px solid #eef2f7; padding:8px 12px; border-radius:8px; font-size:16px">${DATA.contact.email}</code>
+      <code style="display:inline-block; background:#1e1e1e; border:1px solid rgba(255,255,255,0.1); padding:8px 12px; border-radius:8px; font-size:16px">${DATA.contact.email}</code>
     `;
   }
 
